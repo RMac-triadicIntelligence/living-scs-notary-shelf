@@ -1,0 +1,8 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_persisthook_raises.py"]
+
+commit raised: RuntimeError durable write failed
+state changed by failed hook: False
+records: 0 nonces: 0
+
+EXIT_CODE: 0

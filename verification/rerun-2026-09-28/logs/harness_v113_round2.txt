@@ -1,0 +1,3 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/v113_ref
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "lscs_harness.py", "round2_attacks.json", "--mutants"]
+

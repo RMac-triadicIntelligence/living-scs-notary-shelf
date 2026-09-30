@@ -1,0 +1,60 @@
+legit issued commit OK, result=9038b97f25a896a6...
+total trials: 20339
+accepts: total=39 strict-identical=33 non-identical=6
+counts: {"REFUSE": 16563, "ACCEPT": 39, "ADAPTER_REFUSE": 3199, "FAULT": 538}
+distinct FAULT reasons:
+    107  TypeError: argument of type 'float' is not iterable
+     82  TypeError: '<' not supported between instances of 'str' and 'int'
+     69  TypeError: argument of type 'int' is not iterable
+     56  TypeError: 'float' object is not iterable
+     50  TypeError: fromhex() argument must be str, not float
+     38  TypeError: unhashable type: 'dict'
+     37  TypeError: unhashable type: 'list'
+     29  TypeError: fromhex() argument must be str, not int
+     28  TypeError: 'int' object is not iterable
+      7  TypeError: '<' not supported between instances of 'dict' and 'int'
+      6  TypeError: argument of type 'bool' is not iterable
+      6  TypeError: 'bool' object is not iterable
+      5  TypeError: '<' not supported between instances of 'list' and 'int'
+      4  TypeError: fromhex() argument must be str, not bool
+      4  TypeError: fromhex() argument must be str, not dict
+      3  TypeError: '<' not supported between instances of 'NoneType' and 'int'
+      3  TypeError: fromhex() argument must be str, not list
+      2  ValueError: Out of range float values are not JSON compliant: inf
+      1  TypeError: 'NoneType' object is not iterable
+      1  TypeError: fromhex() argument must be str, not None
+ACCEPT findings (non-identical / anomalous): 6
+   drop:trace:authorization_ref ACCEPT non-identical submission (same_result=True)
+   drop:trace:reversal_ref ACCEPT non-identical submission (same_result=True)
+   drop:trace:compensation_ref ACCEPT non-identical submission (same_result=True)
+   drop:trace:descendant_impact_ref ACCEPT non-identical submission (same_result=True)
+   sig ACCEPT non-identical submission (same_result=True)
+   sig ACCEPT non-identical submission (same_result=True)
+saved fuzz_findings.json (findings capped at 500 in file), num_findings= 544
+post-commit sweep (3000 sampled mutations after legit commit): {"REFUSE": 2438, "FAULT": 80, "ADAPTER_REFUSE": 482}
+post-commit anomalies: 0
+exact replay after legit: Refusal: authorization replay
+FAULT by field (single-field replacement):
+     1  auth:signature -> TypeError: fromhex() argument must be str, not None
+     2  auth:signature -> TypeError: fromhex() argument must be str, not bool
+     2  auth:signature -> TypeError: fromhex() argument must be str, not dict
+    17  auth:signature -> TypeError: fromhex() argument must be str, not float
+    11  auth:signature -> TypeError: fromhex() argument must be str, not int
+     2  auth:signature -> TypeError: fromhex() argument must be str, not list
+     1  proposal.created_at -> ValueError: Out of range float values are not JSON compliant
+     4  proposal:evidence.0.detector -> TypeError: unhashable type
+     2  proposal:evidence.0.evidence_id -> TypeError: unhashable type
+     1  proposal:evidence.0.source_uri -> TypeError: argument of type 'bool' is not iterable
+    13  proposal:evidence.0.source_uri -> TypeError: argument of type 'float' is not iterable
+     9  proposal:evidence.0.source_uri -> TypeError: argument of type 'int' is not iterable
+     4  proposal:maturity_state -> TypeError: unhashable type
+     1  trace.created_at -> TypeError: '<' not supported between instances of 'str' and 
+     1  trace.created_at -> ValueError: Out of range float values are not JSON compliant
+     1  trace:created_at -> TypeError: '<' not supported between instances of 'NoneType'
+     2  trace:created_at -> TypeError: '<' not supported between instances of 'dict' and
+     2  trace:created_at -> TypeError: '<' not supported between instances of 'list' and
+    25  trace:created_at -> TypeError: '<' not supported between instances of 'str' and 
+     1  trace:evidence_ids -> TypeError: 'NoneType' object is not iterable
+     2  trace:evidence_ids -> TypeError: 'bool' object is not iterable
+    17  trace:evidence_ids -> TypeError: 'float' object is not iterable
+    11  trace:evidence_ids -> TypeError: 'int' object is not iterable

@@ -1,0 +1,212 @@
+{
+  "accepts_total": 39,
+  "accepts_strict_identical": 33,
+  "accept_kinds": [
+    "authfield:EXP.authority_id",
+    "authfield:EXP.decision",
+    "authfield:EXP.maturity_state",
+    "authfield:EXP.mutation_type",
+    "authfield:EXP.organism_id",
+    "authfield:EXP.policy_version",
+    "authfield:EXP.predecessor_digest",
+    "authfield:EXP.schema",
+    "authfield:EXP.scope",
+    "authfield:REF.authority_id",
+    "authfield:REF.expires_at",
+    "authfield:REF.issued_at",
+    "authfield:REF.maturity_state",
+    "authfield:REF.organism_id",
+    "authfield:REF.policy_version",
+    "authfield:REF.predecessor_digest",
+    "authfield:REF.schema",
+    "authfield:REF.scope",
+    "decision",
+    "drop:trace:authorization_ref",
+    "drop:trace:compensation_ref",
+    "drop:trace:descendant_impact_ref",
+    "drop:trace:reversal_ref",
+    "noncews:determination_id",
+    "noncews:nonce",
+    "numtype:auth.issued_at",
+    "numtype:proposal.created_at",
+    "numtype:trace.created_at",
+    "randmulti",
+    "replace:proposal:mutation.value",
+    "replace:trace:authorization_ref",
+    "replace:trace:compensation_ref",
+    "replace:trace:descendant_impact_ref",
+    "replace:trace:reversal_ref",
+    "sig",
+    "swap:PISS.TISS.AISS"
+  ],
+  "seed": 1337,
+  "total_trials": 20339,
+  "counts": {
+    "REFUSE": 17101,
+    "ACCEPT": 39,
+    "ADAPTER_REFUSE": 3199
+  },
+  "kind_counts": {
+    "replace": {
+      "REFUSE": 3896,
+      "ACCEPT": 5,
+      "ADAPTER_REFUSE": 299
+    },
+    "drop": {
+      "ADAPTER_REFUSE": 55,
+      "REFUSE": 11,
+      "ACCEPT": 4
+    },
+    "extra": {
+      "ADAPTER_REFUSE": 150
+    },
+    "swap": {
+      "ACCEPT": 1,
+      "REFUSE": 26
+    },
+    "authfield": {
+      "ACCEPT": 18,
+      "REFUSE": 16
+    },
+    "sig": {
+      "REFUSE": 6,
+      "ACCEPT": 2
+    },
+    "decision": {
+      "ACCEPT": 1,
+      "ADAPTER_REFUSE": 5,
+      "REFUSE": 2
+    },
+    "noncews": {
+      "ACCEPT": 2,
+      "REFUSE": 8
+    },
+    "numtype": {
+      "REFUSE": 29,
+      "ACCEPT": 3
+    },
+    "randmulti": {
+      "REFUSE": 13107,
+      "ADAPTER_REFUSE": 2690,
+      "ACCEPT": 3
+    }
+  },
+  "num_findings": 6,
+  "findings": [
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "authorization_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4250,
+      "kind": "drop:trace:authorization_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "reversal_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4251,
+      "kind": "drop:trace:reversal_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "compensation_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4252,
+      "kind": "drop:trace:compensation_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "descendant_impact_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4253,
+      "kind": "drop:trace:descendant_impact_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {},
+        "auth": {
+          "signature": [
+            "496fb8d7366413d46c2b6d8f0faa936f30f09cf6a9d758685899007a1991aead1c1f0d3ea983f00d81fa1292b179355896c443ea2b3809527c147c62fd7d700b",
+            "496FB8D7366413D46C2B6D8F0FAA936F30F09CF6A9D758685899007A1991AEAD1C1F0D3EA983F00D81FA1292B179355896C443EA2B3809527C147C62FD7D700B"
+          ]
+        }
+      },
+      "n": 4485,
+      "kind": "sig",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {},
+        "auth": {
+          "signature": [
+            "496fb8d7366413d46c2b6d8f0faa936f30f09cf6a9d758685899007a1991aead1c1f0d3ea983f00d81fa1292b179355896c443ea2b3809527c147c62fd7d700b",
+            "496FB8D7366413D46C2B6D8F0FAA936F30F09CF6A9D758685899007A1991AEAD1C1F0D3EA983F00D81FA1292B179355896C443EA2B3809527C147C62FD7D700B"
+          ]
+        }
+      },
+      "n": 4486,
+      "kind": "sig",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    }
+  ],
+  "post_commit_counts": {
+    "REFUSE": 2518,
+    "ADAPTER_REFUSE": 482
+  },
+  "post_commit_findings": [],
+  "exact_replay_after_legit": "Refusal: authorization replay",
+  "fault_by_field": {}
+}

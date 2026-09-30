@@ -1,0 +1,24 @@
+##### code_01_monkeypatch_verify local
+organism uid: 1000  notary pid: 1027633
+ledger after : {'records': 1, 'digest': '9038b97f25a896a6', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_02_self_issued_authority local
+organism uid: 1000  notary pid: 1027708
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_03_replay_flood local
+organism uid: 1000  notary pid: 1027712
+ledger after : {'records': 1, 'digest': '9038b97f25a896a6', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_04_protocol_abuse local
+organism uid: 1000  notary pid: 1027716
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_06_capability_probe local
+organism uid: 1000  notary pid: 1027720
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_06b_ptrace_reach local
+organism uid: 1000  notary pid: 1027724
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)

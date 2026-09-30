@@ -1,0 +1,222 @@
+[
+  {
+    "name": "v113_p1_art_toctou",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_art_toctou.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v113_p1_hist_restore",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_hist_restore.py"
+    ],
+    "exit_code": 1,
+    "seconds": 0.115
+  },
+  {
+    "name": "v113_p1_hook_record_alias",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_hook_record_alias.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v113_p1_is_sha256",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_is_sha256.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v113_p1_misc",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_misc.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.114
+  },
+  {
+    "name": "v113_p1_more",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_more.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.114
+  },
+  {
+    "name": "v113_p1_persisthook_raises",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_persisthook_raises.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.12
+  },
+  {
+    "name": "v113_p1_reentrancy",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_reentrancy.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v113_p1_toctou",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_toctou.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v113_p2_verify_accepts",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p2_verify_accepts.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v114_p1_art_toctou",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_art_toctou.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v114_p1_hist_restore",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_hist_restore.py"
+    ],
+    "exit_code": 1,
+    "seconds": 0.115
+  },
+  {
+    "name": "v114_p1_hook_record_alias",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_hook_record_alias.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.168
+  },
+  {
+    "name": "v114_p1_is_sha256",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_is_sha256.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v114_p1_misc",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_misc.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.114
+  },
+  {
+    "name": "v114_p1_more",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_more.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.114
+  },
+  {
+    "name": "v114_p1_persisthook_raises",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_persisthook_raises.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v114_p1_reentrancy",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_reentrancy.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.165
+  },
+  {
+    "name": "v114_p1_toctou",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p1_toctou.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "v114_p2_verify_accepts",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "p2_verify_accepts.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.117
+  },
+  {
+    "name": "backstop_compare",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "tools/backstop_compare.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.114
+  },
+  {
+    "name": "compare_receipts",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "tools/compare_receipts.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.032
+  }
+]

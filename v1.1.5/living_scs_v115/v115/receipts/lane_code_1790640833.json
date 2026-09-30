@@ -1,0 +1,460 @@
+{
+  "suite": "Living SCS v1.1.5 code channel",
+  "when": 1790640833,
+  "runtime": {
+    "python": "3.12.3",
+    "cryptography": "46.0.6",
+    "platform": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "kernel": "6.18.44-fc-v37",
+    "ptrace_scope": "absent (same-uid ptrace unrestricted)"
+  },
+  "author": "Claude (Lab)",
+  "runs": [
+    {
+      "attack": "code_01_monkeypatch_verify",
+      "isolation": "local",
+      "organism_uid": 0,
+      "notary_pid": 202,
+      "records_before": 0,
+      "records_after": 1,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 0,
+        "in_process_patch": true,
+        "local": "local engine err: authority public key does not match the configured pin",
+        "notary_on_refused_target": "REFUSE",
+        "notary_on_spliced_issued": "REFUSE",
+        "notary_issued_1": "ACCEPT",
+        "notary_issued_replay": "REFUSE"
+      }
+    },
+    {
+      "attack": "code_01_monkeypatch_verify",
+      "isolation": "same-uid",
+      "organism_uid": 1002,
+      "notary_pid": 204,
+      "records_before": 0,
+      "records_after": 1,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "in_process_patch": true,
+        "local": "local engine err: authority public key does not match the configured pin",
+        "notary_on_refused_target": "REFUSE",
+        "notary_on_spliced_issued": "REFUSE",
+        "notary_issued_1": "ACCEPT",
+        "notary_issued_replay": "REFUSE"
+      }
+    },
+    {
+      "attack": "code_01_monkeypatch_verify",
+      "isolation": "split-uid",
+      "organism_uid": 1002,
+      "notary_pid": 206,
+      "records_before": 0,
+      "records_after": 1,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "in_process_patch": true,
+        "local": "local engine err: authority public key does not match the configured pin",
+        "notary_on_refused_target": "REFUSE",
+        "notary_on_spliced_issued": "REFUSE",
+        "notary_issued_1": "ACCEPT",
+        "notary_issued_replay": "REFUSE"
+      }
+    },
+    {
+      "attack": "code_02_self_issued_authority",
+      "isolation": "local",
+      "organism_uid": 0,
+      "notary_pid": 208,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 0,
+        "my_pubkey_hex": "0a7dd3f3e9b8ddfa891270f7f1fdeb4ea11c576872d1100088a7ce88b285056a",
+        "pinned_pubkey_hex": "07155851c674c865c81f9e5a09e0f062285da1cc3ebdaa114d0d9e218d4138a7",
+        "keys_differ": true,
+        "notary_on_self_signed_mature": "REFUSE",
+        "reason": "Refusal: invalid authorization signature"
+      }
+    },
+    {
+      "attack": "code_02_self_issued_authority",
+      "isolation": "same-uid",
+      "organism_uid": 1002,
+      "notary_pid": 210,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "my_pubkey_hex": "1a44920c08a2bb181cc667cefc314dcd7117e14e01731d48a5572472864afe4d",
+        "pinned_pubkey_hex": "9e919eb39901b3d0abdcf7f4cedd025cd5a0772a872c422043f9dbd6b41faca1",
+        "keys_differ": true,
+        "notary_on_self_signed_mature": "REFUSE",
+        "reason": "Refusal: invalid authorization signature"
+      }
+    },
+    {
+      "attack": "code_02_self_issued_authority",
+      "isolation": "split-uid",
+      "organism_uid": 1002,
+      "notary_pid": 212,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "my_pubkey_hex": "04852ad4e5c3143d56af4b5e648e7d1e82e295933d11034b91977aef358d618a",
+        "pinned_pubkey_hex": "4eab5194158f49ca9049543f9a43030d62cbcde4b8076bde3874870609c6425f",
+        "keys_differ": true,
+        "notary_on_self_signed_mature": "REFUSE",
+        "reason": "Refusal: invalid authorization signature"
+      }
+    },
+    {
+      "attack": "code_03_replay_flood",
+      "isolation": "local",
+      "organism_uid": 0,
+      "notary_pid": 214,
+      "records_before": 0,
+      "records_after": 1,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 0,
+        "accepts": 1,
+        "refuses": 24,
+        "sequence_of_outcomes": [
+          "ACCEPT",
+          "REFUSE",
+          "REFUSE",
+          "REFUSE",
+          "REFUSE",
+          "...",
+          "REFUSE",
+          "REFUSE"
+        ]
+      }
+    },
+    {
+      "attack": "code_03_replay_flood",
+      "isolation": "same-uid",
+      "organism_uid": 1002,
+      "notary_pid": 216,
+      "records_before": 0,
+      "records_after": 1,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "accepts": 1,
+        "refuses": 24,
+        "sequence_of_outcomes": [
+          "ACCEPT",
+          "REFUSE",
+          "REFUSE",
+          "REFUSE",
+          "REFUSE",
+          "...",
+          "REFUSE",
+          "REFUSE"
+        ]
+      }
+    },
+    {
+      "attack": "code_03_replay_flood",
+      "isolation": "split-uid",
+      "organism_uid": 1002,
+      "notary_pid": 218,
+      "records_before": 0,
+      "records_after": 1,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "accepts": 1,
+        "refuses": 24,
+        "sequence_of_outcomes": [
+          "ACCEPT",
+          "REFUSE",
+          "REFUSE",
+          "REFUSE",
+          "REFUSE",
+          "...",
+          "REFUSE",
+          "REFUSE"
+        ]
+      }
+    },
+    {
+      "attack": "code_04_protocol_abuse",
+      "isolation": "local",
+      "organism_uid": 0,
+      "notary_pid": 220,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 0,
+        "read_notary_src": true,
+        "ops": {
+          "head": "HEAD",
+          "sync_state": "WIRE_REFUSE",
+          "admin": "WIRE_REFUSE",
+          "set_state": "WIRE_REFUSE",
+          "install": "WIRE_REFUSE",
+          "reload": "WIRE_REFUSE",
+          "debug": "WIRE_REFUSE",
+          "echo": "WIRE_REFUSE",
+          "rollback": "WIRE_REFUSE",
+          "promote": "WIRE_REFUSE",
+          "": "WIRE_REFUSE",
+          "None": "WIRE_REFUSE",
+          "123": "WIRE_REFUSE"
+        },
+        "weird_submissions": {
+          "list": "ADAPTER_REFUSE",
+          "string": "ADAPTER_REFUSE",
+          "null": "ADAPTER_REFUSE",
+          "int": "ADAPTER_REFUSE",
+          "proposal_int": "ADAPTER_REFUSE",
+          "extra_key": "ADAPTER_REFUSE"
+        },
+        "issued_extra_frame_key": "WIRE_REFUSE",
+        "force_flag": "WIRE_REFUSE",
+        "truncated_frame": "sent"
+      }
+    },
+    {
+      "attack": "code_04_protocol_abuse",
+      "isolation": "same-uid",
+      "organism_uid": 1002,
+      "notary_pid": 222,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "read_notary_src": true,
+        "ops": {
+          "head": "HEAD",
+          "sync_state": "WIRE_REFUSE",
+          "admin": "WIRE_REFUSE",
+          "set_state": "WIRE_REFUSE",
+          "install": "WIRE_REFUSE",
+          "reload": "WIRE_REFUSE",
+          "debug": "WIRE_REFUSE",
+          "echo": "WIRE_REFUSE",
+          "rollback": "WIRE_REFUSE",
+          "promote": "WIRE_REFUSE",
+          "": "WIRE_REFUSE",
+          "None": "WIRE_REFUSE",
+          "123": "WIRE_REFUSE"
+        },
+        "weird_submissions": {
+          "list": "ADAPTER_REFUSE",
+          "string": "ADAPTER_REFUSE",
+          "null": "ADAPTER_REFUSE",
+          "int": "ADAPTER_REFUSE",
+          "proposal_int": "ADAPTER_REFUSE",
+          "extra_key": "ADAPTER_REFUSE"
+        },
+        "issued_extra_frame_key": "WIRE_REFUSE",
+        "force_flag": "WIRE_REFUSE",
+        "truncated_frame": "sent"
+      }
+    },
+    {
+      "attack": "code_04_protocol_abuse",
+      "isolation": "split-uid",
+      "organism_uid": 1002,
+      "notary_pid": 224,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "read_notary_src": true,
+        "ops": {
+          "head": "HEAD",
+          "sync_state": "WIRE_REFUSE",
+          "admin": "WIRE_REFUSE",
+          "set_state": "WIRE_REFUSE",
+          "install": "WIRE_REFUSE",
+          "reload": "WIRE_REFUSE",
+          "debug": "WIRE_REFUSE",
+          "echo": "WIRE_REFUSE",
+          "rollback": "WIRE_REFUSE",
+          "promote": "WIRE_REFUSE",
+          "": "WIRE_REFUSE",
+          "None": "WIRE_REFUSE",
+          "123": "WIRE_REFUSE"
+        },
+        "weird_submissions": {
+          "list": "ADAPTER_REFUSE",
+          "string": "ADAPTER_REFUSE",
+          "null": "ADAPTER_REFUSE",
+          "int": "ADAPTER_REFUSE",
+          "proposal_int": "ADAPTER_REFUSE",
+          "extra_key": "ADAPTER_REFUSE"
+        },
+        "issued_extra_frame_key": "WIRE_REFUSE",
+        "force_flag": "WIRE_REFUSE",
+        "truncated_frame": "sent"
+      }
+    },
+    {
+      "attack": "code_06_capability_probe",
+      "isolation": "local",
+      "organism_uid": 0,
+      "notary_pid": 226,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 0,
+        "target_pid": 226,
+        "proc_status_readable": true,
+        "proc_environ_readable": true,
+        "proc_mem_readable": "OSError",
+        "proc_maps_readable": true,
+        "signal_reachable": true,
+        "notary_status_uid": "0",
+        "my_uid": 0
+      }
+    },
+    {
+      "attack": "code_06_capability_probe",
+      "isolation": "same-uid",
+      "organism_uid": 1002,
+      "notary_pid": 228,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "target_pid": 228,
+        "proc_status_readable": true,
+        "proc_environ_readable": true,
+        "proc_mem_readable": "OSError",
+        "proc_maps_readable": true,
+        "signal_reachable": true,
+        "notary_status_uid": "1002",
+        "my_uid": 1002
+      }
+    },
+    {
+      "attack": "code_06_capability_probe",
+      "isolation": "split-uid",
+      "organism_uid": 1002,
+      "notary_pid": 230,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "target_pid": 230,
+        "proc_status_readable": true,
+        "proc_environ_readable": "PermissionError",
+        "proc_mem_readable": "PermissionError",
+        "proc_maps_readable": "PermissionError",
+        "signal_reachable": "PermissionError",
+        "notary_status_uid": "1001",
+        "my_uid": 1002
+      }
+    },
+    {
+      "attack": "code_06b_ptrace_reach",
+      "isolation": "local",
+      "organism_uid": 0,
+      "notary_pid": 232,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 0,
+        "target_pid": 232,
+        "my_uid": 0,
+        "ptrace_attach": "SUCCESS - notary memory is reachable by this uid",
+        "detached": true
+      }
+    },
+    {
+      "attack": "code_06b_ptrace_reach",
+      "isolation": "same-uid",
+      "organism_uid": 1002,
+      "notary_pid": 234,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "target_pid": 234,
+        "my_uid": 1002,
+        "ptrace_attach": "SUCCESS - notary memory is reachable by this uid",
+        "detached": true
+      }
+    },
+    {
+      "attack": "code_06b_ptrace_reach",
+      "isolation": "split-uid",
+      "organism_uid": 1002,
+      "notary_pid": 236,
+      "records_before": 0,
+      "records_after": 0,
+      "final_maturity": "juvenile",
+      "verify_history": true,
+      "status": "GREEN",
+      "self_report": {
+        "uid": 1002,
+        "target_pid": 236,
+        "my_uid": 1002,
+        "ptrace_attach": "DENIED: Operation not permitted"
+      }
+    }
+  ],
+  "summary": {
+    "green": 18,
+    "red": 0,
+    "modes": [
+      "local",
+      "same-uid",
+      "split-uid"
+    ]
+  }
+}

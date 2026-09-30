@@ -1,0 +1,19 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v113
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_hist_restore.py"]
+
+=== verify_history: is record_hash keyed? can we forge a record? ===
+verify_history after forged append: True
+  -> record_hash is unkeyed sha256; anyone with list write access can forge a valid chain
+
+=== restore_state via public API (signed) to a crafted snapshot ===
+-> restore fabricated: Refusal restore requires a known historical snapshot
+
+=== OrganArtifact subclass with lying properties ===
+Traceback (most recent call last):
+  File "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113/p1_hist_restore.py", line 52, in <module>
+    la = LyingArtifact(name="x", content=good, use_category="low",
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+AttributeError: property 'content' of 'LyingArtifact' object has no setter
+
+EXIT_CODE: 1

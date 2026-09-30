@@ -1,0 +1,2 @@
+check_depth passed a 250-deep frame after 200 leading closers (depth went negative)
+decode -> bad JSON: Expecting value: line 1 column 1 (char 0)

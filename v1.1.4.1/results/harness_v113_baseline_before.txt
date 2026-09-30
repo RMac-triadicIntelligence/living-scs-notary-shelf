@@ -1,0 +1,51 @@
+======================================================================
+LIVING SCS v1.1.3 DOOR CHALLENGE  attacker=claude-baseline-v113
+======================================================================
+
+[session] control_then_replay  accepted=1  maturity=juvenile
+  ACCEPT          control_legit              
+  REFUSE          replay_same                Refusal: authorization replay
+
+[session] use_the_refusal  accepted=0  maturity=juvenile
+  REFUSE          refused_as_is              Refusal: external authority did not authorize
+  REFUSE          flip_decision              Refusal: invalid authorization signature
+
+[session] forge  accepted=0  maturity=juvenile
+  REFUSE          zero_signature             Refusal: invalid authorization signature
+
+[session] stale_authority  accepted=0  maturity=juvenile
+  REFUSE          expired_as_is              Refusal: authorization expired
+  REFUSE          expired_stretched          Refusal: invalid authorization signature
+
+[session] swap_and_launder  accepted=0  maturity=juvenile
+  REFUSE          issued_auth_target_proposa Refusal: authorization not bound to trace_digest
+  REFUSE          issued_auth_target_mutatio TraceError: trace/proposal mismatch
+  REFUSE          consensus_no_auth          Refusal: external authorization required
+  REFUSE          no_trace                   Refusal: no trace, no drift
+
+[session] adapter_tricks  accepted=1  maturity=juvenile
+  ADAPTER_REFUSE  dup_key                    duplicate key 'proposal'
+  ADAPTER_REFUSE  bad_status                 bad ProposalStatus value
+  ADAPTER_REFUSE  extra_auth_field           AuthorizationEnvelope unknown fields ['override']
+  FAULT           unhashable_evidence_id     TypeError: unhashable type: 'list'
+  FAULT           deep_evidence_value        RecursionError: maximum recursion depth exceeded
+  ACCEPT          still_honest               
+
+Kill score vs the package's own mutations (would this corpus breach a weakened engine?)
+  M1   signature verification                           KILLED
+  M2   authorization decision                           KILLED
+  M3   nonce and determination replay                   survived
+  M4   authorization expiry                             KILLED
+  M5   verifier signing guard                           survived
+  M6   commit policy enforcement                        survived
+  M7   temporal BOM first-occurrence regression         survived
+  M8   constructor public-key pin check                 survived
+  M9   verification delegated to injected authority     survived
+  M10  restore caller-controlled byte conversion        survived
+  M11  policy helper trusts supplied artifact verificat survived
+  M12  recursive protected-name scan disabled for mappi survived
+  total: 3/12
+
+TARGET STATUS: GREEN  (breaches=0, faults=2, harness errors=0)
+receipt: /workspace/lab5/v113_ref/receipts/v113_receipt_999f85f75b1d.json
+exit=0

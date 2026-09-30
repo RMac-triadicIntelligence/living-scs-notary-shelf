@@ -1,0 +1,26 @@
+================================================================
+CODE ADVERSARY ROUND  isolation=local  attack=lab7_raw_wire_probe.py
+================================================================
+organism uid: 1000  notary pid: 1029443
+attacker self-report:
+{
+  "uid": 1000,
+  "A_1e999_in_evidence_score": "REFUSE | Refusal: malformed input: non-finite number in proposal.evidence[0].value",
+  "B_neg1e999_in_evidence_score": "REFUSE | Refusal: malformed input: non-finite number in proposal.evidence[0].value",
+  "C_Infinity_token": "WIRE_REFUSE | non-finite number Infinity",
+  "D_NaN_token": "WIRE_REFUSE | non-finite number NaN",
+  "E_dup_key_frame": "WIRE_REFUSE | duplicate key 'op'",
+  "F_lone_surrogate_reason": "REFUSE | Refusal: malformed input: reason is not encodable as UTF-8 (lone surrogate?)",
+  "G_bigint_10e300_score": "REFUSE | Refusal: malformed input: integer outside +/-2**53 in proposal.evidence[0].value",
+  "H_bigint_5000_digits": "WIRE_REFUSE | bad JSON: Exceeds the limit (4300 digits) for integer string conversion: value has 5000 di",
+  "I_depth_96": "WIRE_REFUSE | unknown op or fields",
+  "J_depth_97": "WIRE_REFUSE | nesting deeper than 96 on the wire",
+  "K_non_utf8": "WIRE_REFUSE | not UTF-8: invalid start byte",
+  "L_top_level_array": "WIRE_REFUSE | frame must be an object with a string op",
+  "M_1e999_in_interp_confidence": "REFUSE | Refusal: external authority did not authorize",
+  "ledger_note": "verdict comes from judge channel afterwards"
+}
+----------------------------------------------------------------
+ledger before: {'records': 0, 'digest': '47638fff12b739ab'}
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)

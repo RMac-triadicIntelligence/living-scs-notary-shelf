@@ -1,0 +1,188 @@
+--- original/make_v114_patch.py
++++ working/make_v114_patch.py
+@@ -1,11 +1,11 @@
+ """Apply the v1.1.4 hardening edits, then the v1.1.4.1 follow-up edits, to living_scs_v114/core.py
+ (a byte copy of v1.1.3 core.py). Each edit must match exactly once. Usage:
+-  cp /workspace/lab3/door_challenge/v113/living_scs_v113/core.py /workspace/lab5/v114/living_scs_v114/core.py
+-  python3 /workspace/lab5/make_v114_patch.py
++  cp /workspace/lab3/door_challenge/v113/living_scs_v113/core.py /workspace/scratch/3a32da67dfe7/verification/work/v114/living_scs_v114/core.py
++  python3 /workspace/scratch/3a32da67dfe7/verification/work/make_v114_patch.py
+ """
+ from pathlib import Path
+ 
+-P = Path("/workspace/lab5/v114/living_scs_v114/core.py")
++P = Path("/workspace/scratch/3a32da67dfe7/verification/work/v114/living_scs_v114/core.py")
+ src = P.read_text(encoding="utf-8")
+ 
+ 
+--- original/tools/compare_receipts.py
++++ working/tools/compare_receipts.py
+@@ -1,6 +1,6 @@
+ import json, sys
+-pairs = [("baseline", "/workspace/lab5/v113_ref/receipts/v113_receipt_999f85f75b1d.json", "/workspace/lab5/v114/receipts/v114_receipt_999f85f75b1d.json"),
+-         ("grok_attacks", "/workspace/lab5/v113_ref/receipts/v113_receipt_7b852fcd45e5.json", "/workspace/lab5/v114/receipts/v114_receipt_993d42fa47ab.json")]
++pairs = [("baseline", "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref/receipts/v113_receipt_999f85f75b1d.json", "/workspace/scratch/3a32da67dfe7/verification/work/v114/receipts/v114_receipt_999f85f75b1d.json"),
++         ("grok_attacks", "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref/receipts/v113_receipt_7b852fcd45e5.json", "/workspace/scratch/3a32da67dfe7/verification/work/v114/receipts/v114_receipt_993d42fa47ab.json")]
+ for name, a, b in pairs:
+     ra, rb = json.load(open(a)), json.load(open(b))
+     print("== %s  v113: status=%s faults=%d herr=%d kill=%d/12 | v114: status=%s faults=%d herr=%d kill=%d/12" % (
+--- original/tools/backstop_compare.py
++++ working/tools/backstop_compare.py
+@@ -1,6 +1,6 @@
+ """Genuinely signed proposal with {"op":"set","path":5}: every gate passes, apply_mutation raises TypeError."""
+ import sys, importlib.util
+-for label, path in (("v113", "/workspace/lab5/v113_ref/living_scs_v113/core.py"), ("v114", "/workspace/lab5/v114/living_scs_v114/core.py")):
++for label, path in (("v113", "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref/living_scs_v113/core.py"), ("v114", "/workspace/scratch/3a32da67dfe7/verification/work/v114/living_scs_v114/core.py")):
+     spec = importlib.util.spec_from_file_location("m_" + label, path); m = importlib.util.module_from_spec(spec)
+     sys.modules[spec.name] = m; spec.loader.exec_module(m)
+     NOW = 1_800_000_000
+--- original/tools/differential.py
++++ working/tools/differential.py
+@@ -2,11 +2,11 @@
+ v1.1.4 engines pinned to the SAME key/organism, so per-trial outcomes can be compared directly."""
+ import sys, os, copy, json, importlib.util, uuid, collections
+ sys.argv = ["x"]
+-os.chdir("/workspace/lab5/redteam_v114"); sys.path.insert(0, "/workspace/lab5/redteam_v114")
++os.chdir("/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114"); sys.path.insert(0, "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114")
+ src = open("fuzz.py").read().split("# ---------- run ----------")[0]
+ g = {"__name__": "diff"}; exec(compile(src, "fuzz.py", "exec"), g)
+ m4, H, common = g["m"], g["H"], g["common"]
+-spec = importlib.util.spec_from_file_location("v113_%s" % uuid.uuid4().hex[:6], "/workspace/lab5/v113_ref/living_scs_v113/core.py")
++spec = importlib.util.spec_from_file_location("v113_%s" % uuid.uuid4().hex[:6], "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref/living_scs_v113/core.py")
+ m3 = importlib.util.module_from_spec(spec); sys.modules[spec.name] = m3; spec.loader.exec_module(m3)
+ pub, auth_id, org = g["pub"], g["auth_id"], g["org"]
+ 
+--- original/redteam_v114/fuzz_accept_audit.py
++++ working/redteam_v114/fuzz_accept_audit.py
+@@ -2,6 +2,6 @@
+ resulting digest, records, nonce consumption; and verify a second commit after legit is refused."""
+ import sys, json, copy, random
+ sys.argv=["x"]
+-src=open("/workspace/lab5/redteam_v114/fuzz.py").read().split("# ---------- run ----------")[0]
++src=open("/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114/fuzz.py").read().split("# ---------- run ----------")[0]
+ g={"__name__":"fuzzaudit"}; exec(compile(src,"fuzz.py","exec"), g)
+ m=g["m"]; ISS=g["ISS"]; H
+--- original/redteam_v114/p2_verify_accepts.py
++++ working/redteam_v114/p2_verify_accepts.py
+@@ -1,7 +1,7 @@
+ # Rigorously confirm: EVERY fuzz ACCEPT yields exactly the ISSUED transition,
+ # seq==1, verify_history True. And check ed25519 S+L malleability specifically.
+ import sys, copy, json
+-sys.path.insert(0,"/workspace/lab5/v114")
++sys.path.insert(0,"/workspace/scratch/3a32da67dfe7/verification/work/v114")
+ import common, lscs_harness as H
+ m = common.real_module()
+ eng0, material, pub, auth_id, org, signer, clock0 = common.new_session(m)
+--- original/redteam_v114/fuzz.py
++++ working/redteam_v114/fuzz.py
+@@ -6,7 +6,7 @@
+ to catch non-atomic faults. Fixed RNG seed."""
+ import os, sys, json, copy, random, string, hashlib, itertools
+ 
+-sys.path.insert(0, "/workspace/lab5/v114")
++sys.path.insert(0, "/workspace/scratch/3a32da67dfe7/verification/work/v114")
+ import common
+ import lscs_harness as H
+ 
+@@ -273,7 +273,7 @@
+            "accept_kinds": sorted({a["kind"] for a in accept_log}), "seed": SEED, "total_trials": n, "counts": counts,
+            "kind_counts": kind_counts, "num_findings": len(findings),
+            "findings": findings[:500]}
+-json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v114.json","w"), indent=2, default=str)
++json.dump(summary, open("/workspace/scratch/3a32da67dfe7/verification/work/results/fuzz_findings_v114.json","w"), indent=2, default=str)
+ print("total trials:", n)
+ print("accepts: total=%d strict-identical=%d non-identical=%d" % (len(accept_log), sum(a["identical_strict"] for a in accept_log), sum(not a["identical_strict"] for a in accept_log)))
+ print("counts:", json.dumps(counts))
+@@ -335,7 +335,7 @@
+ summary["post_commit_findings"] = post_findings
+ summary["exact_replay_after_legit"] = exact_replay
+ summary["fault_by_field"] = by_field
+-json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v114.json", "w"), indent=2, default=str)
++json.dump(summary, open("/workspace/scratch/3a32da67dfe7/verification/work/results/fuzz_findings_v114.json", "w"), indent=2, default=str)
+ print("FAULT by field (single-field replacement):")
+ for k, v in sorted(by_field.items()):
+     print("  %4d  %s" % (v, k))
+--- original/redteam_v114/common.py
++++ working/redteam_v114/common.py
+@@ -1,7 +1,7 @@
+ """Shared helpers: build the engine EXACTLY like lscs_harness.new_session."""
+ import os, sys, uuid, importlib.util, copy
+ 
+-V113 = "/workspace/lab5/v114"   # lab5: points at the v1.1.4 copy
++V113 = "/workspace/scratch/3a32da67dfe7/verification/work/v114"   # lab5: points at the v1.1.4 copy
+ PKG_DIR = os.path.join(V113, "living_scs_v114")
+ 
+ def real_module():
+--- original/redteam_v113/p2_verify_accepts.py
++++ working/redteam_v113/p2_verify_accepts.py
+@@ -1,7 +1,7 @@
+ # Rigorously confirm: EVERY fuzz ACCEPT yields exactly the ISSUED transition,
+ # seq==1, verify_history True. And check ed25519 S+L malleability specifically.
+ import sys, copy, json
+-sys.path.insert(0,"/workspace/lab5/v113_ref")
++sys.path.insert(0,"/workspace/scratch/3a32da67dfe7/verification/work/v113_ref")
+ import common, lscs_harness as H
+ m = common.real_module()
+ eng0, material, pub, auth_id, org, signer, clock0 = common.new_session(m)
+--- original/redteam_v113/fuzz.py
++++ working/redteam_v113/fuzz.py
+@@ -6,7 +6,7 @@
+ to catch non-atomic faults. Fixed RNG seed."""
+ import os, sys, json, copy, random, string, hashlib, itertools
+ 
+-sys.path.insert(0, "/workspace/lab5/v113_ref")
++sys.path.insert(0, "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref")
+ import common
+ import lscs_harness as H
+ 
+@@ -273,7 +273,7 @@
+            "accept_kinds": sorted({a["kind"] for a in accept_log}), "seed": SEED, "total_trials": n, "counts": counts,
+            "kind_counts": kind_counts, "num_findings": len(findings),
+            "findings": findings[:500]}
+-json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v113.json","w"), indent=2, default=str)
++json.dump(summary, open("/workspace/scratch/3a32da67dfe7/verification/work/results/fuzz_findings_v113.json","w"), indent=2, default=str)
+ print("total trials:", n)
+ print("accepts: total=%d strict-identical=%d non-identical=%d" % (len(accept_log), sum(a["identical_strict"] for a in accept_log), sum(not a["identical_strict"] for a in accept_log)))
+ print("counts:", json.dumps(counts))
+@@ -335,7 +335,7 @@
+ summary["post_commit_findings"] = post_findings
+ summary["exact_replay_after_legit"] = exact_replay
+ summary["fault_by_field"] = by_field
+-json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v113.json", "w"), indent=2, default=str)
++json.dump(summary, open("/workspace/scratch/3a32da67dfe7/verification/work/results/fuzz_findings_v113.json", "w"), indent=2, default=str)
+ print("FAULT by field (single-field replacement):")
+ for k, v in sorted(by_field.items()):
+     print("  %4d  %s" % (v, k))
+--- original/redteam_v113/common.py
++++ working/redteam_v113/common.py
+@@ -1,7 +1,7 @@
+ """Shared helpers: build the engine EXACTLY like lscs_harness.new_session."""
+ import os, sys, uuid, importlib.util, copy
+ 
+-V113 = "/workspace/lab5/v113_ref"
++V113 = "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref"
+ PKG_DIR = os.path.join(V113, "living_scs_v113")
+ 
+ def real_module():
+--- original/tests/test_v114_hardening.py
++++ working/tests/test_v114_hardening.py
+@@ -305,7 +305,7 @@
+ class Compatibility(unittest.TestCase):
+     def test_v113_minted_material_commits_on_v114(self):
+         # authorization minted entirely with v1.1.3 objects, carried as JSON, commits on v1.1.4
+-        sys.path.insert(0, "/workspace/lab5/v114"); import lscs_harness as H
++        sys.path.insert(0, "/workspace/scratch/3a32da67dfe7/verification/work/v114"); import lscs_harness as H
+         signer = V113.MinatoAuthority("owner-root-1", V113.deterministic_test_private_key())
+         e3 = V113.CommitEngine("organism-alpha", F.initial_state(), V113.MinatoAuthority.verifier_only("owner-root-1", signer.public_key),
+                                V113.TrustedClock(F.NOW), expected_authority_id="owner-root-1",
+--- original/tests/test_l5_1_hook_contract.py
++++ working/tests/test_l5_1_hook_contract.py
+@@ -5,7 +5,7 @@
+ engine and fails verify_record_chain. An idempotent upsert-by-sequence hook stays identical to
+ engine.records, and reconcile_persisted_log() recovers the canonical prefix from a naive log.
+ 
+-Run from /workspace/lab5:  python3 -m unittest -v tests/test_l5_1_hook_contract.py
++Run from /workspace/scratch/3a32da67dfe7/verification/work:  python3 -m unittest -v tests/test_l5_1_hook_contract.py
+                       or:  python3 -m unittest discover -s tests -v      (pytest also collects it)
+ """
+ import json, os, sys, unittest

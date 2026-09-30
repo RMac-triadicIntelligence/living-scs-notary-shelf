@@ -1,0 +1,4 @@
+real engine: 0 mismatches, 0 breaches
+killed: ['M1', 'M2', 'M4']  expected: ['M1', 'M2', 'M4']
+HARNESS STATUS: PASS
+exit=0

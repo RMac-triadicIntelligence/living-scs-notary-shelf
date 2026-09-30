@@ -1,0 +1,100 @@
+--- v113_ref/grok_attacks.json	2026-09-27 17:53:00.390194614 -0500
++++ v114/grok_attacks.json	2026-09-27 18:25:40.486203694 -0500
+@@ -742,7 +742,7 @@
+       "trace": "$ISSUED.trace",
+       "auth": "$ISSUED.auth"
+      },
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "sig_non_string",
+@@ -759,7 +759,7 @@
+        ]
+       }
+      },
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "trace_created_str",
+@@ -776,25 +776,25 @@
+       },
+       "auth": "$ISSUED.auth"
+      },
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "overflow_confidence",
+      "intent": "confidence as a 400-digit integer -> OverflowError converting to float, not a Refusal.",
+      "raw_json": "{\"proposal\":{\"$merge\":[\"$ISSUED.proposal\",{\"interpretation\":{\"method\":\"m\",\"version\":\"1\",\"output\":{},\"confidence\":10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,\"salience\":0.5,\"resonance\":0,\"convergence\":0}}]},\"trace\":\"$ISSUED.trace\",\"auth\":\"$ISSUED.auth\"}",
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "float_overflow_to_inf",
+      "intent": "1e400 slips past parse_constant (which only guards the NaN/Infinity keywords) and becomes inf; canonical_json(allow_nan=False) then raises ValueError, not a Refusal.",
+      "raw_json": "{\"proposal\":{\"$merge\":[\"$ISSUED.proposal\",{\"evidence\":[{\"evidence_id\":\"x\",\"source_uri\":\"a://b\",\"observed_at\":1,\"detector\":\"d\",\"detector_version\":\"1\",\"value\":1e400}]}]},\"trace\":\"$ISSUED.trace\",\"auth\":\"$ISSUED.auth\"}",
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "surrogate_in_reason",
+      "intent": "A lone UTF-16 surrogate \\ud800 in a valid submission's reason -> UnicodeEncodeError when the record is hashed, not a Refusal.",
+      "raw_json": "{\"proposal\":\"$ISSUED.proposal\",\"trace\":\"$ISSUED.trace\",\"auth\":\"$ISSUED.auth\",\"reason\":\"\\ud800\"}",
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     }
+    ]
+   },
+--- v113_ref/round2_attacks.json	2026-09-27 17:53:00.390194614 -0500
++++ v114/round2_attacks.json	2026-09-27 18:25:51.422179199 -0500
+@@ -742,7 +742,7 @@
+       "trace": "$ISSUED.trace",
+       "auth": "$ISSUED.auth"
+      },
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "sig_non_string",
+@@ -759,7 +759,7 @@
+        ]
+       }
+      },
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "trace_created_str",
+@@ -776,25 +776,25 @@
+       },
+       "auth": "$ISSUED.auth"
+      },
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "overflow_confidence",
+      "intent": "confidence as a 400-digit integer -> OverflowError converting to float, not a Refusal.",
+      "raw_json": "{\"proposal\":{\"$merge\":[\"$ISSUED.proposal\",{\"interpretation\":{\"method\":\"m\",\"version\":\"1\",\"output\":{},\"confidence\":10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,\"salience\":0.5,\"resonance\":0,\"convergence\":0}}]},\"trace\":\"$ISSUED.trace\",\"auth\":\"$ISSUED.auth\"}",
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "float_overflow_to_inf",
+      "intent": "1e400 slips past parse_constant (which only guards the NaN/Infinity keywords) and becomes inf; canonical_json(allow_nan=False) then raises ValueError, not a Refusal.",
+      "raw_json": "{\"proposal\":{\"$merge\":[\"$ISSUED.proposal\",{\"evidence\":[{\"evidence_id\":\"x\",\"source_uri\":\"a://b\",\"observed_at\":1,\"detector\":\"d\",\"detector_version\":\"1\",\"value\":1e400}]}]},\"trace\":\"$ISSUED.trace\",\"auth\":\"$ISSUED.auth\"}",
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     },
+     {
+      "id": "surrogate_in_reason",
+      "intent": "A lone UTF-16 surrogate \\ud800 in a valid submission's reason -> UnicodeEncodeError when the record is hashed, not a Refusal.",
+      "raw_json": "{\"proposal\":\"$ISSUED.proposal\",\"trace\":\"$ISSUED.trace\",\"auth\":\"$ISSUED.auth\",\"reason\":\"\\ud800\"}",
+-     "expect": "FAULT"
++     "expect": "REFUSE"
+     }
+    ]
+   }

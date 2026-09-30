@@ -1,0 +1,25 @@
+test_advancing_clock (tests.test_l5_1_hook_contract.NaiveAppendHookDiverges.test_advancing_clock) ... ok
+test_divergence_persists_into_later_commits (tests.test_l5_1_hook_contract.NaiveAppendHookDiverges.test_divergence_persists_into_later_commits) ... ok
+test_fixed_clock (tests.test_l5_1_hook_contract.NaiveAppendHookDiverges.test_fixed_clock) ... ok
+test_docstrings_document_the_contract (tests.test_l5_1_hook_contract.ReconcilePersistedLog.test_docstrings_document_the_contract) ... ok
+test_json_round_trip_entries (tests.test_l5_1_hook_contract.ReconcilePersistedLog.test_json_round_trip_entries) ... ok
+test_malformed_entries_and_bad_engine_records (tests.test_l5_1_hook_contract.ReconcilePersistedLog.test_malformed_entries_and_bad_engine_records) ... ok
+test_naive_log_reconciles_to_engine_records (tests.test_l5_1_hook_contract.ReconcilePersistedLog.test_naive_log_reconciles_to_engine_records) ... ok
+test_rolled_back_record_never_retried (tests.test_l5_1_hook_contract.ReconcilePersistedLog.test_rolled_back_record_never_retried) ... ok
+test_tamper_gap_and_keys (tests.test_l5_1_hook_contract.ReconcilePersistedLog.test_tamper_gap_and_keys) ... ok
+test_advancing_clock (tests.test_l5_1_hook_contract.UpsertHookStaysConsistent.test_advancing_clock) ... ok
+test_advancing_clock_keyed_and_second_commit (tests.test_l5_1_hook_contract.UpsertHookStaysConsistent.test_advancing_clock_keyed_and_second_commit) ... ok
+test_fixed_clock (tests.test_l5_1_hook_contract.UpsertHookStaysConsistent.test_fixed_clock) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.023s
+
+OK
+
+  naive append-only hook, advance_clock=True: engine seqs [1] verify_history True | persisted seqs [1, 1] verify_record_chain False | persisted==engine False
+  naive append-only hook, advance_clock=False: engine seqs [1] verify_history True | persisted seqs [1, 1] verify_record_chain False | persisted==engine False
+  reconcile_persisted_log(naive log seqs [1, 1, 2]) -> seqs [1, 2], equals engine.records True, chain True
+  upsert-by-sequence hook, advance_clock=True keyed=False: engine seqs [1] verify_history True | persisted seqs [1] verify_record_chain True | persisted==engine True
+  upsert-by-sequence hook, advance_clock=True keyed=True: engine seqs [1, 2] verify_history True | persisted seqs [1, 2] verify_record_chain True | persisted==engine True
+  upsert-by-sequence hook, advance_clock=False keyed=False: engine seqs [1] verify_history True | persisted seqs [1] verify_record_chain True | persisted==engine True
+exit=0

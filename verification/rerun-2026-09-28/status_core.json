@@ -1,0 +1,118 @@
+[
+  {
+    "name": "manifest_original",
+    "cwd": "/workspace/scratch/3a32da67dfe7/living_scs_v114_1",
+    "command": [
+      "sha256sum",
+      "-c",
+      "MANIFEST_v114.sha256"
+    ],
+    "exit_code": 0,
+    "seconds": 0.008
+  },
+  {
+    "name": "selftest_v114",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "selftest_v114.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.616
+  },
+  {
+    "name": "unittest_v114",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.315
+  },
+  {
+    "name": "reentrancy_v114",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "test_l4_1_reentrancy.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.114
+  },
+  {
+    "name": "harness_v114_baseline",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "lscs_harness.py",
+      "lscs_baseline.json",
+      "--mutants"
+    ],
+    "exit_code": 0,
+    "seconds": 0.516
+  },
+  {
+    "name": "harness_v114_grok",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "lscs_harness.py",
+      "grok_attacks.json",
+      "--mutants"
+    ],
+    "exit_code": 0,
+    "seconds": 0.817
+  },
+  {
+    "name": "harness_v114_round2",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v114",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "lscs_harness.py",
+      "round2_attacks.json",
+      "--mutants"
+    ],
+    "exit_code": 0,
+    "seconds": 0.666
+  },
+  {
+    "name": "selftest_v113",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "selftest_v113.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.516
+  },
+  {
+    "name": "harness_v113_baseline",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "lscs_harness.py",
+      "lscs_baseline.json",
+      "--mutants"
+    ],
+    "exit_code": 0,
+    "seconds": 0.566
+  },
+  {
+    "name": "harness_v113_grok",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work/v113_ref",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "lscs_harness.py",
+      "grok_attacks.json",
+      "--mutants"
+    ],
+    "exit_code": 0,
+    "seconds": 0.766
+  }
+]

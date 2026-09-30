@@ -1,0 +1,35 @@
+uid=1000(box) gid=1000(box) groups=1000(box)
+test_refusal_is_permissionerror (tests.test_v115.TestEngineNonFiniteReason.test_refusal_is_permissionerror) ... ok
+test_scalar_number_must_be_finite (tests.test_v115.TestEngineNonFiniteReason.test_scalar_number_must_be_finite) ... ok
+test_walker_reports_non_finite_in_object (tests.test_v115.TestEngineNonFiniteReason.test_walker_reports_non_finite_in_object) ... ok
+test_invariant_across_limits (tests.test_v115.TestHostRecursionInvariance.test_invariant_across_limits) ... ok
+test_full_sequence_ledger_is_the_record (tests.test_v115.TestNotaryPipeSmoke.test_full_sequence_ledger_is_the_record) ... ok
+test_missing_pin_refused (tests.test_v115.TestSupervisorPins.test_missing_pin_refused) ... ok
+test_self_pins_verify (tests.test_v115.TestSupervisorPins.test_self_pins_verify) ... ok
+test_single_byte_change_detected (tests.test_v115.TestSupervisorPins.test_single_byte_change_detected) ... ok
+test_brackets_inside_strings_do_not_count (tests.test_v115.TestWireDepthScanner.test_brackets_inside_strings_do_not_count) ... ok
+test_depth_at_cap_ok (tests.test_v115.TestWireDepthScanner.test_depth_at_cap_ok) ... ok
+test_depth_one_past_cap_refused (tests.test_v115.TestWireDepthScanner.test_depth_one_past_cap_refused) ... ok
+test_escaped_quote_keeps_string_open (tests.test_v115.TestWireDepthScanner.test_escaped_quote_keeps_string_open) ... ok
+test_mixed_container_kinds_balance (tests.test_v115.TestWireDepthScanner.test_mixed_container_kinds_balance) ... ok
+test_encoder_is_iterative_under_low_recursionlimit (tests.test_v115.TestWireEncodeDecode.test_encoder_is_iterative_under_low_recursionlimit) ... ok
+test_normal_float_roundtrips (tests.test_v115.TestWireEncodeDecode.test_normal_float_roundtrips) ... ok
+test_roundtrip_at_the_cap (tests.test_v115.TestWireEncodeDecode.test_roundtrip_at_the_cap) ... ok
+test_roundtrip_submission_shape (tests.test_v115.TestWireEncodeDecode.test_roundtrip_submission_shape) ... ok
+test_declared_oversize_length_refused (tests.test_v115.TestWireFraming.test_declared_oversize_length_refused) ... ok
+test_duplicate_key_refused (tests.test_v115.TestWireFraming.test_duplicate_key_refused) ... ok
+test_framebuffer_reassembles_split_frame (tests.test_v115.TestWireFraming.test_framebuffer_reassembles_split_frame) ... ok
+test_framebuffer_splits_two_frames (tests.test_v115.TestWireFraming.test_framebuffer_splits_two_frames) ... ok
+test_non_utf8_refused (tests.test_v115.TestWireFraming.test_non_utf8_refused) ... ok
+test_oversize_payload_refused_on_send (tests.test_v115.TestWireFraming.test_oversize_payload_refused_on_send) ... ok
+test_decode_infinity_token_refused (tests.test_v115.TestWireNonFinite.test_decode_infinity_token_refused) ... ok
+test_decode_nan_token_refused (tests.test_v115.TestWireNonFinite.test_decode_nan_token_refused) ... ok
+test_encode_nan_refused (tests.test_v115.TestWireNonFinite.test_encode_nan_refused) ... ok
+test_encode_neg_inf_refused (tests.test_v115.TestWireNonFinite.test_encode_neg_inf_refused) ... ok
+test_encode_nested_non_finite_refused (tests.test_v115.TestWireNonFinite.test_encode_nested_non_finite_refused) ... ok
+test_encode_pos_inf_refused (tests.test_v115.TestWireNonFinite.test_encode_pos_inf_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.769s
+
+OK

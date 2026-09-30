@@ -1,0 +1,8 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "selftest_v114.py"]
+
+real engine: 0 mismatches, 0 breaches
+killed: ['M1', 'M2', 'M4']  expected: ['M1', 'M2', 'M4']
+HARNESS STATUS: PASS
+
+EXIT_CODE: 0

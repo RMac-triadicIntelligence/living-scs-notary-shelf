@@ -1,0 +1,13 @@
+[
+  {
+    "name": "fuzz_v113",
+    "cwd": "/workspace/scratch/3a32da67dfe7/verification/work",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "tools/fuzz_counts.py",
+      "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v113/fuzz.py"
+    ],
+    "exit_code": 0,
+    "seconds": 8.851
+  }
+]

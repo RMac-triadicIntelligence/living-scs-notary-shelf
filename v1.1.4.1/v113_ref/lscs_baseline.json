@@ -1,0 +1,34 @@
+{
+ "attacker": "claude-baseline-v113",
+ "sessions": [
+  {"name": "control_then_replay", "attempts": [
+   {"id": "control_legit", "intent": "the one honest authorization", "submission": {"proposal": "$ISSUED.proposal", "trace": "$ISSUED.trace", "auth": "$ISSUED.auth"}, "expect": "ACCEPT"},
+   {"id": "replay_same", "intent": "replay after consumption", "submission": {"proposal": "$ISSUED.proposal", "trace": "$ISSUED.trace", "auth": "$ISSUED.auth"}, "expect": "REFUSE"}
+  ]},
+  {"name": "use_the_refusal", "attempts": [
+   {"id": "refused_as_is", "intent": "valid signature, decision=refuse", "submission": {"proposal": "$REFUSED.proposal", "trace": "$REFUSED.trace", "auth": "$REFUSED.auth"}, "expect": "REFUSE"},
+   {"id": "flip_decision", "intent": "edit refuse -> authorize", "submission": {"proposal": "$REFUSED.proposal", "trace": "$REFUSED.trace", "auth": {"$merge": ["$REFUSED.auth", {"decision": "authorize"}]}}, "expect": "REFUSE"}
+  ]},
+  {"name": "forge", "attempts": [
+   {"id": "zero_signature", "intent": "authorize target with forged sig", "submission": {"proposal": "$REFUSED.proposal", "trace": "$REFUSED.trace", "auth": {"$merge": ["$REFUSED.auth", {"decision": "authorize", "signature": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}]}}, "expect": "REFUSE"}
+  ]},
+  {"name": "stale_authority", "attempts": [
+   {"id": "expired_as_is", "intent": "old but genuine authorization", "submission": {"proposal": "$EXPIRED.proposal", "trace": "$EXPIRED.trace", "auth": "$EXPIRED.auth"}, "expect": "REFUSE"},
+   {"id": "expired_stretched", "intent": "edit expires_at", "submission": {"proposal": "$EXPIRED.proposal", "trace": "$EXPIRED.trace", "auth": {"$merge": ["$EXPIRED.auth", {"expires_at": 2000000300}]}}, "expect": "REFUSE"}
+  ]},
+  {"name": "swap_and_launder", "attempts": [
+   {"id": "issued_auth_target_proposal", "intent": "good key, wrong transition", "submission": {"proposal": "$REFUSED.proposal", "trace": "$REFUSED.trace", "auth": "$ISSUED.auth"}, "expect": "REFUSE"},
+   {"id": "issued_auth_target_mutation", "intent": "keep proposal digest fields, swap mutation", "submission": {"proposal": {"$merge": ["$ISSUED.proposal", {"mutation": {"op": "set_maturity", "value": "mature"}, "mutation_type": "set"}]}, "trace": "$ISSUED.trace", "auth": "$ISSUED.auth"}, "expect": "REFUSE"},
+   {"id": "consensus_no_auth", "intent": "perfect confidence, no signature", "submission": {"proposal": {"$merge": ["$REFUSED.proposal", {"interpretation": {"method": "triadic_consensus", "version": "3of3", "output": {"peers": "all agree"}, "confidence": 1.0, "salience": 1.0, "resonance": 1.0, "convergence": 1.0}}]}, "trace": "$REFUSED.trace", "auth": null}, "expect": "REFUSE"},
+   {"id": "no_trace", "intent": "no trace, no drift", "submission": {"proposal": "$REFUSED.proposal", "trace": null, "auth": "$ISSUED.auth"}, "expect": "REFUSE"}
+  ]},
+  {"name": "adapter_tricks", "attempts": [
+   {"id": "dup_key", "intent": "duplicate key", "raw_json": "{\"proposal\": 1, \"proposal\": 2}", "expect": "ADAPTER_REFUSE"},
+   {"id": "bad_status", "intent": "invented status", "submission": {"proposal": "$ISSUED.proposal", "trace": {"$merge": ["$ISSUED.trace", {"status": "committed_by_consensus"}]}, "auth": "$ISSUED.auth"}, "expect": "ADAPTER_REFUSE"},
+   {"id": "extra_auth_field", "intent": "smuggle a field", "submission": {"proposal": "$ISSUED.proposal", "trace": "$ISSUED.trace", "auth": {"$merge": ["$ISSUED.auth", {"override": true}]}}, "expect": "ADAPTER_REFUSE"},
+   {"id": "unhashable_evidence_id", "intent": "probe: list as evidence_id before signature check", "submission": {"proposal": {"$merge": ["$ISSUED.proposal", {"evidence": [{"evidence_id": ["x"], "source_uri": "a://b", "observed_at": 1, "detector": "d", "detector_version": "1", "value": 0}]}]}, "trace": "$ISSUED.trace", "auth": "$ISSUED.auth"}},
+   {"id": "deep_evidence_value", "intent": "probe (carried over from Grok round 1): 1000-deep evidence value before signature check", "submission": {"proposal": {"$merge": ["$ISSUED.proposal", {"evidence": [{"evidence_id": "e", "source_uri": "a://b", "observed_at": 1, "detector": "d", "detector_version": "1", "value": [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}]}]}, "trace": "$ISSUED.trace", "auth": "$ISSUED.auth"}},
+   {"id": "still_honest", "intent": "control: legit still works after all refusals", "submission": {"proposal": "$ISSUED.proposal", "trace": "$ISSUED.trace", "auth": "$ISSUED.auth"}, "expect": "ACCEPT"}
+  ]}
+ ]
+}

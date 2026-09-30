@@ -1,0 +1,115 @@
+##### code_01_monkeypatch_verify local (full)
+================================================================
+CODE ADVERSARY ROUND  isolation=local  attack=code_01_monkeypatch_verify.py
+================================================================
+organism uid: 1000  notary pid: 1027824
+attacker self-report:
+{
+  "uid": 1000,
+  "in_process_patch": true,
+  "local": "local engine err: authority public key does not match the configured pin",
+  "notary_on_refused_target": "REFUSE",
+  "notary_on_spliced_issued": "REFUSE",
+  "notary_issued_1": "ACCEPT",
+  "notary_issued_replay": "REFUSE"
+}
+----------------------------------------------------------------
+ledger before: {'records': 0, 'digest': '47638fff12b739ab'}
+ledger after : {'records': 1, 'digest': '9038b97f25a896a6', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_02_self_issued_authority local (full)
+================================================================
+CODE ADVERSARY ROUND  isolation=local  attack=code_02_self_issued_authority.py
+================================================================
+organism uid: 1000  notary pid: 1027833
+attacker self-report:
+{
+  "uid": 1000,
+  "my_pubkey_hex": "5319a731c7ad51f39718967e727308bbebe79bf8add09ad3a3fbc5b740b8e534",
+  "pinned_pubkey_hex": "f03629e00931072bc5c8b8809654a85ceb1bd42030fc24bc8c9c3b3bfe19814b",
+  "keys_differ": true,
+  "notary_on_self_signed_mature": "REFUSE",
+  "reason": "Refusal: invalid authorization signature"
+}
+----------------------------------------------------------------
+ledger before: {'records': 0, 'digest': '47638fff12b739ab'}
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_04_protocol_abuse local (full)
+================================================================
+CODE ADVERSARY ROUND  isolation=local  attack=code_04_protocol_abuse.py
+================================================================
+organism uid: 1000  notary pid: 1027836
+attacker self-report:
+{
+  "uid": 1000,
+  "read_notary_src": true,
+  "ops": {
+    "head": "HEAD",
+    "sync_state": "WIRE_REFUSE",
+    "admin": "WIRE_REFUSE",
+    "set_state": "WIRE_REFUSE",
+    "install": "WIRE_REFUSE",
+    "reload": "WIRE_REFUSE",
+    "debug": "WIRE_REFUSE",
+    "echo": "WIRE_REFUSE",
+    "rollback": "WIRE_REFUSE",
+    "promote": "WIRE_REFUSE",
+    "": "WIRE_REFUSE",
+    "None": "WIRE_REFUSE",
+    "123": "WIRE_REFUSE"
+  },
+  "weird_submissions": {
+    "list": "ADAPTER_REFUSE",
+    "string": "ADAPTER_REFUSE",
+    "null": "ADAPTER_REFUSE",
+    "int": "ADAPTER_REFUSE",
+    "proposal_int": "ADAPTER_REFUSE",
+    "extra_key": "ADAPTER_REFUSE"
+  },
+  "issued_extra_frame_key": "WIRE_REFUSE",
+  "force_flag": "WIRE_REFUSE",
+  "truncated_frame": "sent"
+}
+----------------------------------------------------------------
+ledger before: {'records': 0, 'digest': '47638fff12b739ab'}
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_06_capability_probe local (full)
+================================================================
+CODE ADVERSARY ROUND  isolation=local  attack=code_06_capability_probe.py
+================================================================
+organism uid: 1000  notary pid: 1027843
+attacker self-report:
+{
+  "uid": 1000,
+  "target_pid": 1027843,
+  "proc_status_readable": true,
+  "proc_environ_readable": true,
+  "proc_mem_readable": "OSError",
+  "proc_maps_readable": true,
+  "signal_reachable": true,
+  "notary_status_uid": "1000",
+  "my_uid": 1000
+}
+----------------------------------------------------------------
+ledger before: {'records': 0, 'digest': '47638fff12b739ab'}
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+##### code_06b_ptrace_reach local (full)
+================================================================
+CODE ADVERSARY ROUND  isolation=local  attack=code_06b_ptrace_reach.py
+================================================================
+organism uid: 1000  notary pid: 1027846
+attacker self-report:
+{
+  "uid": 1000,
+  "target_pid": 1027846,
+  "my_uid": 1000,
+  "ptrace_attach": "SUCCESS - notary memory is reachable by this uid",
+  "detached": true
+}
+----------------------------------------------------------------
+ledger before: {'records': 0, 'digest': '47638fff12b739ab'}
+ledger after : {'records': 0, 'digest': '47638fff12b739ab', 'maturity': 'juvenile', 'verify_history': True}
+TARGET STATUS: GREEN  (ledger held, breaches=0)

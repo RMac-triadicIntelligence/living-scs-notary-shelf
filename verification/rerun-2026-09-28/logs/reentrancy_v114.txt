@@ -1,0 +1,9 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "test_l4_1_reentrancy.py"]
+
+PASS test_reentrant_commit_refused
+PASS test_reentrant_refusal_propagates_atomically
+PASS test_guard_resets_after_reentry
+PASS test_l4_17_still_holds
+
+EXIT_CODE: 0

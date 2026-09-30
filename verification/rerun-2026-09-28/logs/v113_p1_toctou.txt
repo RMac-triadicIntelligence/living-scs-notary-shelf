@@ -1,0 +1,20 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v113
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_toctou.py"]
+
+=== TOCTOU-1: mutate proposal.mutation dict between issue and commit ===
+mutated in place OK; proposal.mutation= {'op': 'set', 'path': ['personality', 'motto'], 'value': 'HACKED'}
+commit -> TraceError trace/proposal mismatch
+
+=== TOCTOU-2: dict-subclass mutation whose .get is stateful ===
+base mutation: {'op': 'set', 'path': ['personality', 'motto'], 'value': 'dwell first'}
+
+=== ALIASING: does engine.state alias internal state? ===
+after mutating returned state, internal maturity: juvenile tone: humble
+
+=== ALIASING: does engine.records alias internal records? ===
+records is tuple: True
+
+=== ALIASING: state_at returns copy? ===
+internal states unchanged: juvenile
+
+EXIT_CODE: 0

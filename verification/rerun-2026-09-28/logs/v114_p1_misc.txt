@@ -1,0 +1,19 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_misc.py"]
+
+=== CLOCK boundary: expires_at == now (issued auth expires_at=T0+300) ===
+commit at now==expires_at: 9038b97f25a896a6 ACCEPT
+-> expired+1: Refusal authorization expired
+
+=== Future skew: issued_at > now+30. issued at T0, set clock below ===
+-> future skew: Refusal trusted clock rollback detected
+
+=== Enum identity: in-process auth with raw string decision ===
+built raw-decision auth; decision= 'authorize'
+-> commit: Refusal malformed input: auth.decision must be a Decision
+
+=== stateful dict-subclass mutation (in-process direct construct) ===
+p2.digest()==issued.digest(): True
+-> commit: Refusal result digest mismatch
+
+EXIT_CODE: 0

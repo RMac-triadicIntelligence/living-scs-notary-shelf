@@ -1,0 +1,8 @@
+PASS legit ISSUED accepted
+PASS REFUSED target refused
+PASS ISSUED replay refused
+PASS deep frame refused on wire
+PASS ledger still sequence 1 after attacks
+PASS history verifies
+PASS state unchanged (digest stable)
+HARNESS STATUS: PASS

@@ -1,0 +1,142 @@
+--- living_scs_v114/core.py (v1.1.4, sha256 14ce06a0...)
++++ living_scs_v114/core.py (v1.1.4.1)
+@@ -4,6 +4,7 @@
+ import hashlib
+ import hmac
+ import json
++import logging
+ import math
+ import threading
+ import time
+@@ -28,6 +29,11 @@
+ _LOWER_HEX = frozenset("0123456789abcdef")
+ _ANY_HEX = frozenset("0123456789abcdefABCDEF")
+ 
++# Library logger. The NullHandler keeps the engine silent unless the application configures logging
++# (records still propagate to the root logger), so logging.lastResort never prints to stderr.
++_LOG = logging.getLogger(__name__)
++_LOG.addHandler(logging.NullHandler())
++
+ 
+ class Refusal(PermissionError):
+     """Default-deny refusal raised by the validation/authorization/commit boundary."""
+@@ -264,6 +270,74 @@
+     return True
+ 
+ 
++def reconcile_persisted_log(
++    persisted_records: Iterable[Any],
++    *,
++    history_key: Optional[bytes] = None,
++    engine_records: Optional[Iterable[Any]] = None,
++) -> tuple[CommitRecord, ...]:
++    """Return the canonical prefix of a record log written by a ``persist_hook``.
++
++    A hook can be called for a commit that is then rolled back (see ``CommitEngine.__init__``), so an
++    append-only log may hold sequence N twice. This helper applies the upsert rule after the fact:
++
++    1. dedupe by ``sequence``, last write wins (the retried commit replaces the rolled-back attempt);
++    2. keep the contiguous run of sequences 1, 2, 3, ... (anything after a gap is dropped);
++    3. keep the longest prefix that passes ``verify_record_chain`` with the engine's ``history_key``;
++    4. if ``engine_records`` (a live engine's ``records``) is given, it is authoritative: cut at the
++       first record that differs from it, so a record whose commit was rolled back and never retried
++       is dropped too. ``engine_records`` must itself verify, otherwise Refusal is raised.
++
++    The caller should then rewrite the persisted log to exactly the returned records (and append
++    ``engine_records[len(result):]`` if the live engine has more). The result always verifies with
++    ``verify_record_chain(result, history_key=history_key)``; an empty tuple means nothing is usable.
++
++    Entries may be ``CommitRecord`` instances or mappings with exactly the CommitRecord field names
++    (for example parsed JSON). A malformed entry raises Refusal: recovery should not guess. Records
++    are only re-hashed to verify them, never re-signed or rewritten; fresh instances are returned.
++
++    Limitation: without ``engine_records`` (for example at a cold start) a final record whose hook
++    wrote durably and then raised, with no retry afterwards, is correctly chained and cannot be told
++    apart from a real commit using the log alone.
++    """
++    names = tuple(f.name for f in fields(CommitRecord))
++    latest: dict[int, CommitRecord] = {}
++    for index, entry in enumerate(persisted_records):
++        try:
++            if type(entry) is CommitRecord:
++                record = replace(entry)
++            elif isinstance(entry, Mapping) and set(entry.keys()) == set(names):
++                record = CommitRecord(**{name: entry[name] for name in names})
++            else:
++                raise TypeError(type(entry).__name__)
++        except Exception as exc:
++            raise Refusal(f"persisted log entry {index} is not a commit record") from exc
++        if type(record.sequence) is not int or record.sequence < 1:
++            raise Refusal(f"persisted log entry {index} has an invalid sequence")
++        latest[record.sequence] = record                       # last write wins
++    run: list[CommitRecord] = []
++    while len(run) + 1 in latest:
++        run.append(latest[len(run) + 1])
++    # Every prefix of a verifying chain verifies, so binary-search the longest verifying prefix.
++    low, high = 0, len(run)
++    while low < high:
++        middle = (low + high + 1) // 2
++        if verify_record_chain(run[:middle], history_key=history_key):
++            low = middle
++        else:
++            high = middle - 1
++    result = run[:low]
++    if engine_records is not None:
++        authoritative = list(engine_records)
++        if not verify_record_chain(authoritative, history_key=history_key):
++            raise Refusal("engine records do not verify; cannot reconcile against them")
++        common = 0
++        while common < len(result) and common < len(authoritative) and result[common] == authoritative[common]:
++            common += 1
++        result = result[:common]
++    return tuple(result)
++
++
+ @dataclass(frozen=True)
+ class OrganArtifact:
+     name: str
+@@ -729,6 +803,33 @@
+         persist_hook: Optional[Callable[[CommitRecord, Mapping[str, Any]], None]] = None,
+         history_key: Optional[bytes] = None,
+     ):
++        """Build an engine pinned to one authority identity and Ed25519 public key.
++
++        ``persist_hook(record, new_state)`` contract (durable write-ahead hook):
++
++        * It runs inside ``commit()`` under the engine lock, after every check has passed and after the
++          authorization's nonce and determination are reserved, but BEFORE the record and state are
++          applied in memory. It receives copies: a fresh ``CommitRecord`` and a deep copy of the state.
++        * The hook may be called for a commit that is later rolled back. If it raises, for any reason and
++          even after it has already written durably, the engine releases the reservation, changes nothing
++          and re-raises. Retrying the same authorization then yields a record with the SAME sequence N
++          (with an advancing clock also a different timestamp, and so a different ``record_hash``).
++        * Hooks MUST therefore be idempotent upserts keyed by ``record.sequence``: storing sequence N
++          overwrites any previously stored sequence N. An append-only hook can end up with sequence N
++          twice, and that log fails ``verify_record_chain`` (tests/test_l5_1_hook_contract.py).
++        * Hooks must not re-enter the engine. A ``commit()`` (including a restore) from inside the hook is
++          refused with ``Refusal("re-entrant commit refused ...")``; other threads wait on the lock.
++        * Recovery: on startup, truncate or reconcile the persisted log to the engine's ``records``, which
++          are authoritative. ``reconcile_persisted_log(persisted, engine_records=engine.records,
++          history_key=...)`` dedupes by sequence (last write wins), drops anything that does not chain,
++          and drops records the engine does not have. Without engine records (a cold start) the helper
++          still dedupes and verifies, but a final record whose hook wrote and then raised, with no retry,
++          cannot be detected from the log alone.
++
++        ``history_key`` (optional, at least 16 bytes) switches record hashes to HMAC-SHA256; see
++        ``record_hash_for``. There is no migration path from an unkeyed to a keyed history: starting a
++        keyed history requires a new chain.
++        """
+         if not isinstance(expected_authority_id, str) or not expected_authority_id:
+             raise Refusal("expected authority identity is required")
+         if not isinstance(expected_public_key, bytes) or len(expected_public_key) != 32:
+@@ -985,6 +1086,10 @@
+                 except MemoryError:
+                     raise
+                 except Exception as exc:
++                    _LOG.warning(
++                        "commit pre-commit backstop: unexpected %s converted to Refusal('malformed input: %s')",
++                        type(exc).__name__, type(exc).__name__, exc_info=exc,
++                    )
+                     raise Refusal(f"malformed input: {type(exc).__name__}") from exc
+                 new_state, stored_state, resulting, current, record, nonce, determination_id = prepared
+                 # Phase 2: reserve the authorization, then run the durable-write hook on copies.

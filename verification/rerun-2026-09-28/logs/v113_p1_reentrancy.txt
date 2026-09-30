@@ -1,0 +1,14 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v113
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_reentrancy.py"]
+
+outer commit result: 9038b97f25a896a6
+hook calls: 2
+reentrant_result: 9038b97f25a896a6
+reentrant_exc: None
+num records: 2
+record sequences: [1, 1]
+prev hashes distinct: ['00000000', '00000000']
+verify_history: False
+used_nonces: 1 used_dets: 1
+
+EXIT_CODE: 0

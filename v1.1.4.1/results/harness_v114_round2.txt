@@ -1,0 +1,74 @@
+======================================================================
+LIVING SCS v1.1.4 DOOR CHALLENGE  attacker=grok-expert (Lab, for Rusty)
+======================================================================
+
+[session] control_and_replay  accepted=1  maturity=juvenile
+  ACCEPT          control_legit              
+  REFUSE          replay_nonce               Refusal: authorization replay
+  REFUSE          replay_third               Refusal: authorization replay
+
+[session] target_self_consistent_forged_sig  accepted=0  maturity=juvenile
+  REFUSE          forged_authorize_target    Refusal: invalid authorization signature
+  REFUSE          issued_sig_over_target     Refusal: invalid authorization signature
+
+[session] use_the_refusal  accepted=0  maturity=juvenile
+  REFUSE          refused_as_is              Refusal: external authority did not authorize
+  REFUSE          flip_refuse_to_authorize   Refusal: invalid authorization signature
+  REFUSE          refused_zero_sig           Refusal: invalid authorization signature
+
+[session] stale_authority  accepted=0  maturity=juvenile
+  REFUSE          expired_as_is              Refusal: authorization expired
+  REFUSE          expired_stretched          Refusal: invalid authorization signature
+  REFUSE          expired_reissued           Refusal: invalid authorization signature
+
+[session] binding_launder  accepted=0  maturity=juvenile
+  REFUSE          issued_auth_target_proposa Refusal: authorization not bound to trace_digest
+  REFUSE          swap_mutation_keep_auth    TraceError: trace/proposal mismatch
+  REFUSE          no_trace                   Refusal: no trace, no drift
+  REFUSE          no_auth                    Refusal: external authorization required
+  REFUSE          consensus_no_auth          Refusal: external authorization required
+
+[session] protected_alias  accepted=0  maturity=juvenile
+  REFUSE          set_maturity_via_generic_s TraceError: trace/proposal mismatch
+  REFUSE          maturity_casefold          TraceError: trace/proposal mismatch
+  REFUSE          personality_shadow_organs  TraceError: trace/proposal mismatch
+  REFUSE          fullwidth_organs           TraceError: trace/proposal mismatch
+
+[session] organ_and_restore  accepted=0  maturity=juvenile
+  REFUSE          install_organ_issued_auth  TraceError: trace/proposal mismatch
+  REFUSE          restore_state_to_mature    TraceError: trace/proposal mismatch
+
+[session] adapter_tricks  accepted=1  maturity=juvenile
+  ADAPTER_REFUSE  dup_key                    duplicate key 'proposal'
+  ADAPTER_REFUSE  bad_status                 bad ProposalStatus value
+  ADAPTER_REFUSE  extra_auth_field           AuthorizationEnvelope unknown fields ['override']
+  ADAPTER_REFUSE  unknown_submission_key     submission needs proposal[, trace, auth, artifact, reason]
+  ADAPTER_REFUSE  nan_confidence             non-finite number NaN
+  ACCEPT          reason_social_eng          
+
+[session] fault_findings  accepted=0  maturity=juvenile
+  REFUSE          list_evidence_id           Refusal: malformed input: proposal.evidence[0].evidence_id must be a s
+  REFUSE          sig_non_string             Refusal: malformed input: auth.signature must be a string
+  REFUSE          trace_created_str          Refusal: malformed input: trace.created_at must be an integer
+  REFUSE          overflow_confidence        Refusal: malformed input: interpretation.confidence outside +/-2**53
+  REFUSE          float_overflow_to_inf      Refusal: malformed input: non-finite number in proposal.evidence[0].va
+  REFUSE          surrogate_in_reason        Refusal: malformed input: reason is not encodable as UTF-8 (lone surro
+
+Kill score vs the package's own mutations (would this corpus breach a weakened engine?)
+  M1   signature verification                           KILLED
+  M2   authorization decision                           KILLED
+  M3   nonce and determination replay                   survived
+  M4   authorization expiry                             KILLED
+  M5   verifier signing guard                           survived
+  M6   commit policy enforcement                        survived
+  M7   temporal BOM first-occurrence regression         survived
+  M8   constructor public-key pin check                 survived
+  M9   verification delegated to injected authority     survived
+  M10  restore caller-controlled byte conversion        survived
+  M11  policy helper trusts supplied artifact verificat survived
+  M12  recursive protected-name scan disabled for mappi survived
+  total: 3/12
+
+TARGET STATUS: GREEN  (breaches=0, faults=0, harness errors=0)
+receipt: /workspace/lab5/v114/receipts/v114_receipt_101b12fa7fe5.json
+exit=0

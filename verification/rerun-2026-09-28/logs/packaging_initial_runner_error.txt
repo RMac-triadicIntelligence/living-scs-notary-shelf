@@ -1,0 +1,19 @@
+patched /workspace/scratch/3a32da67dfe7/verification/patch_reproduction/core.py 1255 lines
+Patch reproduction: byte-identical PASS 23299fdc63361e632b0f30cc686b09eb3e2a3bb70daf66f51b7378fb5a26baa6
+Mutants: 12/12 substitutions applied and modules imported
+v113 control FAIL test_reentrant_commit_refused AssertionError re-entry not refused: None
+v113 control FAIL test_reentrant_refusal_propagates_atomically AssertionError outer commit should fail when hook raises
+v113 control PASS test_guard_resets_after_reentry
+v113 control PASS test_l4_17_still_holds
+Old-version sensitivity control: expected 2/4 failures reproduced
+{"version": "v113_ref", "receipt": "v113_receipt_70827b33354e.json", "sessions": 9, "attempts": 34, "accepts": 2, "status": "GREEN", "breaches": 0, "faults": 6, "harness_errors": 0, "expectation_mismatches": 0, "killed": ["M1", "M2", "M4"], "changes_from_shipped_receipt": []}
+{"version": "v113_ref", "receipt": "v113_receipt_7b852fcd45e5.json", "sessions": 10, "attempts": 52, "accepts": 3, "status": "GREEN", "breaches": 0, "faults": 11, "harness_errors": 0, "expectation_mismatches": 0, "killed": ["M1", "M2", "M4"], "changes_from_shipped_receipt": [{"id": "ev_depth_900", "stored": "REFUSE", "rerun": "FAULT", "reason": "RecursionError: maximum recursion depth exceeded"}]}
+{"version": "v113_ref", "receipt": "v113_receipt_999f85f75b1d.json", "sessions": 6, "attempts": 17, "accepts": 2, "status": "GREEN", "breaches": 0, "faults": 2, "harness_errors": 0, "expectation_mismatches": 0, "killed": ["M1", "M2", "M4"], "changes_from_shipped_receipt": []}
+{"version": "v114", "receipt": "v114_receipt_101b12fa7fe5.json", "sessions": 9, "attempts": 34, "accepts": 2, "status": "GREEN", "breaches": 0, "faults": 0, "harness_errors": 0, "expectation_mismatches": 0, "killed": ["M1", "M2", "M4"], "changes_from_shipped_receipt": []}
+{"version": "v114", "receipt": "v114_receipt_993d42fa47ab.json", "sessions": 10, "attempts": 52, "accepts": 3, "status": "GREEN", "breaches": 0, "faults": 0, "harness_errors": 0, "expectation_mismatches": 0, "killed": ["M1", "M2", "M4"], "changes_from_shipped_receipt": []}
+{"version": "v114", "receipt": "v114_receipt_999f85f75b1d.json", "sessions": 6, "attempts": 17, "accepts": 2, "status": "GREEN", "breaches": 0, "faults": 0, "harness_errors": 0, "expectation_mismatches": 0, "killed": ["M1", "M2", "M4"], "changes_from_shipped_receipt": []}
+Traceback (most recent call last):
+  File "/workspace/scratch/3a32da67dfe7/verification/check_packaging.py", line 62, in <module>
+    assert actual-listed=={'MANIFEST_v114.sha256'}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

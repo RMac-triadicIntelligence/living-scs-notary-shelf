@@ -1,0 +1,201 @@
+--- v113_ref/lscs_harness.py	2026-09-27 17:53:00.390194614 -0500
++++ v114/lscs_harness.py	2026-09-27 17:54:24.165983954 -0500
+@@ -1,4 +1,4 @@
+-"""lscs_harness.py - runs a JSON attack file against the REAL v1.1.3 CommitEngine.
++"""lscs_harness.py - runs a JSON attack file against the REAL v1.1.4 CommitEngine (lab5 copy of harness v0.2.1).
+ 
+ Channel: attacks are literal JSON, parsed strictly, never executed. A thin
+ adapter converts JSON into the package's own dataclasses using their own
+@@ -11,7 +11,7 @@
+ import copy, hashlib, importlib.util, json, os, sys, tempfile, time, uuid, shutil
+ 
+ HERE = os.path.dirname(os.path.abspath(__file__))
+-PKG_DIR = os.path.join(HERE, "living_scs_v113")
++PKG_DIR = os.path.join(HERE, "living_scs_v114")
+ T0 = 2_000_000_000
+ INITIAL_STATE = {"maturity": "juvenile", "personality": {"tone": "humble"},
+                  "organs": {}, "policy": {"egress": "deny"}}
+@@ -331,7 +331,7 @@
+     faults = sum(r["faults"] for r in results)
+     herr = sum(r["harness_errors"] for r in results)
+     print("=" * 70)
+-    print("LIVING SCS v1.1.3 DOOR CHALLENGE  attacker=%s" % data.get("attacker", "?"))
++    print("LIVING SCS v1.1.4 DOOR CHALLENGE  attacker=%s" % data.get("attacker", "?"))
+     print("=" * 70)
+     for r in results:
+         print("\n[session] %s  accepted=%d  maturity=%s" % (r["name"], r["accepted"], r["final_state"].get("maturity")))
+@@ -360,7 +360,7 @@
+                "sessions": [{k: r[k] for k in ("name", "accepted", "rows")} for r in results],
+                "run_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+     os.makedirs(os.path.join(HERE, "receipts"), exist_ok=True)
+-    out = os.path.join(HERE, "receipts", "v113_receipt_%s.json" % receipt["attack_file_sha256"][:12])
++    out = os.path.join(HERE, "receipts", "v114_receipt_%s.json" % receipt["attack_file_sha256"][:12])
+     json.dump(receipt, open(out, "w"), indent=2, default=str)
+     print("receipt:", out)
+     sys.exit(1 if breaches else 0)
+--- v113_ref/selftest_v113.py	2026-09-27 17:53:00.390194614 -0500
++++ v114/selftest_v114.py	2026-09-27 17:54:24.165983954 -0500
+@@ -1,4 +1,4 @@
+-"""Harness status for the v1.1.3 lane. Must PASS before any adversary result counts."""
++"""Harness status for the v1.1.4 lane (lab5 copy of selftest_v113.py; harness copy points at living_scs_v114)."""
+ import json, sys
+ import lscs_harness as h
+ 
+--- /workspace/lab4/common.py	2026-09-27 15:15:00.354597105 -0500
++++ redteam_v114/common.py	2026-09-27 17:54:38.257948564 -0500
+@@ -1,8 +1,8 @@
+ """Shared helpers: build the engine EXACTLY like lscs_harness.new_session."""
+ import os, sys, uuid, importlib.util, copy
+ 
+-V113 = "/workspace/lab3/door_challenge/v113"
+-PKG_DIR = os.path.join(V113, "living_scs_v113")
++V113 = "/workspace/lab5/v114"   # lab5: points at the v1.1.4 copy
++PKG_DIR = os.path.join(V113, "living_scs_v114")
+ 
+ def real_module():
+     name = "lscs_real_%s" % uuid.uuid4().hex[:6]
+@@ -25,7 +25,7 @@
+ def interp(m):
+     return m.Interpretation("basin_consolidation", "1.3", {"read": "stable"}, 0.9, 0.8, 0.7, 0.9)
+ 
+-def new_session(m, *, persist_hook=None, deterministic=False):
++def new_session(m, *, persist_hook=None, deterministic=False, history_key=None):
+     if deterministic:
+         priv = m.deterministic_test_private_key()
+     else:
+@@ -37,7 +37,7 @@
+     org = "organism-" + uuid.uuid4().hex[:8]
+     eng = m.CommitEngine(org, INITIAL_STATE, m.MinatoAuthority.verifier_only(auth_id, priv.public_key()),
+                          clock, expected_authority_id=auth_id, expected_public_key=pub,
+-                         persist_hook=persist_hook)
++                         persist_hook=persist_hook, **({"history_key": history_key} if history_key is not None else {}))
+ 
+     def mint(pid, mut, decision, issued_at, expires_at):
+         p = eng.proposal_for_mutation(proposal_id=pid, mutation_type=mut["op"], mutation=mut,
+--- /workspace/lab4/fuzz.py	2026-09-27 15:21:08.865560839 -0500
++++ redteam_v114/fuzz.py	2026-09-27 17:54:38.257948564 -0500
+@@ -6,7 +6,7 @@
+ to catch non-atomic faults. Fixed RNG seed."""
+ import os, sys, json, copy, random, string, hashlib, itertools
+ 
+-sys.path.insert(0, "/workspace/lab3/door_challenge/v113")
++sys.path.insert(0, "/workspace/lab5/v114")
+ import common
+ import lscs_harness as H
+ 
+@@ -273,7 +273,7 @@
+            "accept_kinds": sorted({a["kind"] for a in accept_log}), "seed": SEED, "total_trials": n, "counts": counts,
+            "kind_counts": kind_counts, "num_findings": len(findings),
+            "findings": findings[:500]}
+-json.dump(summary, open("/workspace/lab4/fuzz_findings.json","w"), indent=2, default=str)
++json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v114.json","w"), indent=2, default=str)
+ print("total trials:", n)
+ print("accepts: total=%d strict-identical=%d non-identical=%d" % (len(accept_log), sum(a["identical_strict"] for a in accept_log), sum(not a["identical_strict"] for a in accept_log)))
+ print("counts:", json.dumps(counts))
+@@ -335,7 +335,7 @@
+ summary["post_commit_findings"] = post_findings
+ summary["exact_replay_after_legit"] = exact_replay
+ summary["fault_by_field"] = by_field
+-json.dump(summary, open("/workspace/lab4/fuzz_findings.json", "w"), indent=2, default=str)
++json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v114.json", "w"), indent=2, default=str)
+ print("FAULT by field (single-field replacement):")
+ for k, v in sorted(by_field.items()):
+     print("  %4d  %s" % (v, k))
+--- /workspace/lab4/fuzz_accept_audit.py	2026-09-27 15:20:18.125692891 -0500
++++ redteam_v114/fuzz_accept_audit.py	2026-09-27 17:54:38.261948554 -0500
+@@ -2,6 +2,6 @@
+ resulting digest, records, nonce consumption; and verify a second commit after legit is refused."""
+ import sys, json, copy, random
+ sys.argv=["x"]
+-src=open("/workspace/lab4/fuzz.py").read().split("# ---------- run ----------")[0]
++src=open("/workspace/lab5/redteam_v114/fuzz.py").read().split("# ---------- run ----------")[0]
+ g={"__name__":"fuzzaudit"}; exec(compile(src,"fuzz.py","exec"), g)
+ m=g["m"]; ISS=g["ISS"]; H
+--- /workspace/lab4/p1_hist_restore.py	2026-09-27 15:18:19.526013067 -0500
++++ redteam_v114/p1_hist_restore.py	2026-09-27 17:54:38.261948554 -0500
+@@ -23,6 +23,23 @@
+ print("verify_history after forged append:", eng.verify_history())
+ print("  -> record_hash is unkeyed sha256; anyone with list write access can forge a valid chain")
+ 
++# v1.1.4: same forged append against an engine built with history_key (HMAC-SHA256 record hashes)
++eng, mat, pub, aid, org, signer, clock = common.new_session(m, history_key=b"k" * 32)
++iss = mat["ISSUED"]
++eng.commit(iss["proposal"], iss["trace"], iss["auth"])
++rec = eng._records[0]
++print("[keyed] verify_history after legit commit:", eng.verify_history())
++forged_event = dict(forged_event, predecessor_digest=rec.resulting_digest, previous_record_hash=rec.record_hash)
++eng._records.append(m.CommitRecord(**forged_event, record_hash=m.sha256_hex(forged_event)))
++print("[keyed] verify_history after forged append (attacker sha256):", eng.verify_history())
++eng._records.pop()
++eng._records.append(m.CommitRecord(**forged_event, record_hash=m.record_hash_for(forged_event, b"x" * 32)))
++print("[keyed] verify_history after forged append (HMAC with wrong key):", eng.verify_history())
++try:
++    eng.commit(iss["proposal"], iss["trace"], iss["auth"])
++except Exception as e:
++    print("[keyed] commit on forged history ->", type(e).__name__, e)
++
+ print()
+ print("=== restore_state via public API (signed) to a crafted snapshot ===")
+ eng, mat, pub, aid, org, signer, clock = fresh()
+--- /workspace/lab4/p2_verify_accepts.py	2026-09-27 15:20:54.177598787 -0500
++++ redteam_v114/p2_verify_accepts.py	2026-09-27 17:54:38.257948564 -0500
+@@ -1,7 +1,7 @@
+ # Rigorously confirm: EVERY fuzz ACCEPT yields exactly the ISSUED transition,
+ # seq==1, verify_history True. And check ed25519 S+L malleability specifically.
+ import sys, copy, json
+-sys.path.insert(0,"/workspace/lab3/door_challenge/v113")
++sys.path.insert(0,"/workspace/lab5/v114")
+ import common, lscs_harness as H
+ m = common.real_module()
+ eng0, material, pub, auth_id, org, signer, clock0 = common.new_session(m)
+--- /workspace/lab4/common.py	2026-09-27 15:15:00.354597105 -0500
++++ redteam_v113/common.py	2026-09-27 17:53:08.526174135 -0500
+@@ -1,7 +1,7 @@
+ """Shared helpers: build the engine EXACTLY like lscs_harness.new_session."""
+ import os, sys, uuid, importlib.util, copy
+ 
+-V113 = "/workspace/lab3/door_challenge/v113"
++V113 = "/workspace/lab5/v113_ref"
+ PKG_DIR = os.path.join(V113, "living_scs_v113")
+ 
+ def real_module():
+--- /workspace/lab4/fuzz.py	2026-09-27 15:21:08.865560839 -0500
++++ redteam_v113/fuzz.py	2026-09-27 17:53:08.526174135 -0500
+@@ -6,7 +6,7 @@
+ to catch non-atomic faults. Fixed RNG seed."""
+ import os, sys, json, copy, random, string, hashlib, itertools
+ 
+-sys.path.insert(0, "/workspace/lab3/door_challenge/v113")
++sys.path.insert(0, "/workspace/lab5/v113_ref")
+ import common
+ import lscs_harness as H
+ 
+@@ -273,7 +273,7 @@
+            "accept_kinds": sorted({a["kind"] for a in accept_log}), "seed": SEED, "total_trials": n, "counts": counts,
+            "kind_counts": kind_counts, "num_findings": len(findings),
+            "findings": findings[:500]}
+-json.dump(summary, open("/workspace/lab4/fuzz_findings.json","w"), indent=2, default=str)
++json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v113.json","w"), indent=2, default=str)
+ print("total trials:", n)
+ print("accepts: total=%d strict-identical=%d non-identical=%d" % (len(accept_log), sum(a["identical_strict"] for a in accept_log), sum(not a["identical_strict"] for a in accept_log)))
+ print("counts:", json.dumps(counts))
+@@ -335,7 +335,7 @@
+ summary["post_commit_findings"] = post_findings
+ summary["exact_replay_after_legit"] = exact_replay
+ summary["fault_by_field"] = by_field
+-json.dump(summary, open("/workspace/lab4/fuzz_findings.json", "w"), indent=2, default=str)
++json.dump(summary, open("/workspace/lab5/results/fuzz_findings_v113.json", "w"), indent=2, default=str)
+ print("FAULT by field (single-field replacement):")
+ for k, v in sorted(by_field.items()):
+     print("  %4d  %s" % (v, k))
+--- /workspace/lab4/p2_verify_accepts.py	2026-09-27 15:20:54.177598787 -0500
++++ redteam_v113/p2_verify_accepts.py	2026-09-27 17:53:08.530174125 -0500
+@@ -1,7 +1,7 @@
+ # Rigorously confirm: EVERY fuzz ACCEPT yields exactly the ISSUED transition,
+ # seq==1, verify_history True. And check ed25519 S+L malleability specifically.
+ import sys, copy, json
+-sys.path.insert(0,"/workspace/lab3/door_challenge/v113")
++sys.path.insert(0,"/workspace/lab5/v113_ref")
+ import common, lscs_harness as H
+ m = common.real_module()
+ eng0, material, pub, auth_id, org, signer, clock0 = common.new_session(m)

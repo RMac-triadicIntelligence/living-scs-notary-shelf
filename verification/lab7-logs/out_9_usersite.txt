@@ -1,0 +1,5 @@
+planted /tmp/lab7tmp_home/.local/lib/python3.13/site-packages/usercustomize.py
+pins verified (default supervisor.PINS), notary launched pid 1030724
+REFUSED-decision envelope (set_maturity=mature) -> REFUSE Refusal: external authority did not authorize
+forged AUTHORIZE (bad sig) -> ACCEPT 
+LEDGER: records 1 maturity mature verify_history True

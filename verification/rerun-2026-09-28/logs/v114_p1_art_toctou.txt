@@ -1,0 +1,12 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_art_toctou.py"]
+
+=== OrganArtifact TOCTOU via __getattribute__ flip ===
+snapshot succeeded; snap.content= b'benign' digest match check passed
+NOTE: snapshot reads content ONCE into local, then hashes same local -> no TOCTOU
+
+=== persist_hook receives record + new_state; mutating them affects stored state? ===
+stored maturity: juvenile (hook got a deepcopy of new_state)
+stored reason: authorized mutation
+
+EXIT_CODE: 0

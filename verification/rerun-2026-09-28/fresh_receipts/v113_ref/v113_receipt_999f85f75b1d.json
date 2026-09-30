@@ -1,0 +1,200 @@
+{
+  "attacker": "claude-baseline-v113",
+  "notes": null,
+  "attack_file_sha256": "999f85f75b1d3cdd858c182fa354f0d02289e115c52fe962bcd7f4c800b2d0e7",
+  "core_py_sha256": "aa0ac6eb29339dafd980df6c95ff6c008aa78135f32a32b6e7b500cc793c195b",
+  "harness_sha256": "93309211811eb1f149602433b88a1cafb67bf5600b7d2eb712c648c5d63b273a",
+  "target_status": "GREEN",
+  "breaches": [],
+  "faults": 2,
+  "harness_errors": 0,
+  "mutant_kill": {
+    "M1": true,
+    "M2": true,
+    "M3": false,
+    "M4": true,
+    "M5": false,
+    "M6": false,
+    "M7": false,
+    "M8": false,
+    "M9": false,
+    "M10": false,
+    "M11": false,
+    "M12": false
+  },
+  "sessions": [
+    {
+      "name": "control_then_replay",
+      "accepted": 1,
+      "rows": [
+        {
+          "id": "control_legit",
+          "intent": "the one honest authorization",
+          "outcome": "ACCEPT",
+          "reason": "",
+          "expect": "ACCEPT",
+          "matches_expect": true
+        },
+        {
+          "id": "replay_same",
+          "intent": "replay after consumption",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization replay",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "use_the_refusal",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "refused_as_is",
+          "intent": "valid signature, decision=refuse",
+          "outcome": "REFUSE",
+          "reason": "Refusal: external authority did not authorize",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "flip_decision",
+          "intent": "edit refuse -> authorize",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "forge",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "zero_signature",
+          "intent": "authorize target with forged sig",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "stale_authority",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "expired_as_is",
+          "intent": "old but genuine authorization",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization expired",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "expired_stretched",
+          "intent": "edit expires_at",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "swap_and_launder",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "issued_auth_target_proposal",
+          "intent": "good key, wrong transition",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization not bound to trace_digest",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "issued_auth_target_mutation",
+          "intent": "keep proposal digest fields, swap mutation",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "consensus_no_auth",
+          "intent": "perfect confidence, no signature",
+          "outcome": "REFUSE",
+          "reason": "Refusal: external authorization required",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "no_trace",
+          "intent": "no trace, no drift",
+          "outcome": "REFUSE",
+          "reason": "Refusal: no trace, no drift",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "adapter_tricks",
+      "accepted": 1,
+      "rows": [
+        {
+          "id": "dup_key",
+          "intent": "duplicate key",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "duplicate key 'proposal'",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "bad_status",
+          "intent": "invented status",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "bad ProposalStatus value",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "extra_auth_field",
+          "intent": "smuggle a field",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "AuthorizationEnvelope unknown fields ['override']",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "unhashable_evidence_id",
+          "intent": "probe: list as evidence_id before signature check",
+          "outcome": "FAULT",
+          "reason": "TypeError: unhashable type: 'list'",
+          "expect": null,
+          "matches_expect": true
+        },
+        {
+          "id": "deep_evidence_value",
+          "intent": "probe (carried over from Grok round 1): 1000-deep evidence value before signature check",
+          "outcome": "FAULT",
+          "reason": "RecursionError: maximum recursion depth exceeded",
+          "expect": null,
+          "matches_expect": true
+        },
+        {
+          "id": "still_honest",
+          "intent": "control: legit still works after all refusals",
+          "outcome": "ACCEPT",
+          "reason": "",
+          "expect": "ACCEPT",
+          "matches_expect": true
+        }
+      ]
+    }
+  ],
+  "run_utc": "2026-09-28T18:40:35Z"
+}

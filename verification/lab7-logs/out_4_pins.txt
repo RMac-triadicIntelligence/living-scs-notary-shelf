@@ -1,0 +1,20 @@
+== A. pristine tree, default supervisor.PINS
+LAUNCH OK (default PINS); ISSUED -> ACCEPT seq 1
+== B. one-byte change to v115/wire.py, default PINS
+LAUNCH REFUSED PinMismatch: wire.py: 989ee4452bbf... != pinned 3c5e1600624a...
+== C. same tampered tree via shipped runner run_code_attack.py (uses pins_for(ROOT))
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+== C2. same tampered tree via selftest_v115.py
+HARNESS STATUS: PASS
+== B. one-byte change to v115/notary.py, default PINS
+LAUNCH REFUSED PinMismatch: notary.py: 090d838e447b... != pinned 6b854cfabcd8...
+== C. same tampered tree via shipped runner run_code_attack.py (uses pins_for(ROOT))
+TARGET STATUS: GREEN  (ledger held, breaches=0)
+== C2. same tampered tree via selftest_v115.py
+HARNESS STATUS: PASS
+== D. malicious notary.py + matching edit of supervisor.PINS (supervisor.py unpinned)
+backdoor op -> ACCEPT maturity now: mature
+LAUNCH OK (default PINS, edited) last reply -> ACCEPT seq 0
+== E. is supervisor.py in SOURCES/PINS?
+SOURCES keys: ['core.py', 'lscs_harness.py', 'notary.py', 'wire.py']  supervisor.py pinned: False
+session.py / organism_runner.py pinned: False False

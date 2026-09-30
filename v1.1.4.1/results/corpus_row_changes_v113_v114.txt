@@ -1,0 +1,18 @@
+== baseline  v113: status=GREEN faults=2 herr=0 kill=3/12 | v114: status=GREEN faults=0 herr=0 kill=3/12
+   core sha256 v113=aa0ac6eb29339daf v114=23299fdc63361e63  same kill set: True
+   unhashable_evidence_id   FAULT   -> REFUSE  | v114: Refusal: malformed input: proposal.evidence[0].evidence_id must be a string
+   deep_evidence_value      FAULT   -> REFUSE  | v114: Refusal: malformed input: nesting deeper than 64 in proposal.evidence[0].value
+== grok_attacks  v113: status=GREEN faults=10 herr=0 kill=3/12 | v114: status=GREEN faults=0 herr=0 kill=3/12
+   core sha256 v113=aa0ac6eb29339daf v114=23299fdc63361e63  same kill set: True
+   list_evidence_id         FAULT   -> REFUSE  | v114: Refusal: malformed input: proposal.evidence[0].evidence_id must be a string
+   sig_non_string           FAULT   -> REFUSE  | v114: Refusal: malformed input: auth.signature must be a string
+   trace_created_str        FAULT   -> REFUSE  | v114: Refusal: malformed input: trace.created_at must be an integer
+   overflow_confidence      FAULT   -> REFUSE  | v114: Refusal: malformed input: interpretation.confidence outside +/-2**53
+   float_overflow_to_inf    FAULT   -> REFUSE  | v114: Refusal: malformed input: non-finite number in proposal.evidence[0].value
+   surrogate_in_reason      FAULT   -> REFUSE  | v114: Refusal: malformed input: reason is not encodable as UTF-8 (lone surrogate?)
+   ev_depth_1000            FAULT   -> REFUSE  | v114: Refusal: malformed input: nesting deeper than 64 in proposal.evidence[0].value
+   ev_depth_3000            FAULT   -> REFUSE  | v114: Refusal: malformed input: nesting deeper than 64 in proposal.evidence[0].value
+   deep_interp_output       FAULT   -> REFUSE  | v114: Refusal: malformed input: nesting deeper than 64 in interpretation.output
+   deep_trace_field         FAULT   -> REFUSE  | v114: Refusal: malformed input: trace.trace_id must be a string
+   deep_artifact_name       ACCEPT  -> REFUSE  | v114: Refusal: artifact supplied for a non-install_organ operation
+   legit_after_all          REFUSE  -> ACCEPT  | v114: 

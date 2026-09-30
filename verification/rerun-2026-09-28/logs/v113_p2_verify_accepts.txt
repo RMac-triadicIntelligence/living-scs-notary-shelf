@@ -1,0 +1,8 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v113
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p2_verify_accepts.py"]
+
+S+L rejected: InvalidSignature
+UPPERCASE hex sig VERIFIES (same bytes)
+=> uppercase is same 64 bytes, so identical authorized transition, not a new commit
+
+EXIT_CODE: 0

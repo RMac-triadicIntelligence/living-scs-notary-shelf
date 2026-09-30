@@ -1,0 +1,14 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_is_sha256.py"]
+
+plain64          len=64 is_sha256=True
+upper            len=64 is_sha256=False
+leading_space    len=64 is_sha256=False
+trailing_space   len=64 is_sha256=False
+underscore       len=64 is_sha256=False
+plus_sign        len=64 is_sha256=False
+0x_prefix        len=64 is_sha256=False
+newline          len=64 is_sha256=False
+real_digest      len=64 is_sha256=True
+
+EXIT_CODE: 0

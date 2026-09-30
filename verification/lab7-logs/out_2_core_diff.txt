@@ -1,0 +1,10 @@
+IDENTICAL v114/living_scs_v114/core.py == lab5/v114/living_scs_v114/core.py
+IDENTICAL v114/lscs_harness.py == lab5/v114/lscs_harness.py
+IDENTICAL v114/grok_attacks.json == lab5/v114/grok_attacks.json
+IDENTICAL v114/round2_attacks.json == lab5/v114/round2_attacks.json
+IDENTICAL v114/lscs_baseline.json == lab5/v114/lscs_baseline.json
+IDENTICAL v115/core.py == lab5/v114/living_scs_v114/core.py
+IDENTICAL v115/lscs_harness.py == lab5/v114/lscs_harness.py
+23299fdc63361e632b0f30cc686b09eb3e2a3bb70daf66f51b7378fb5a26baa6  pristine/living_scs_v115/v115/core.py
+23299fdc63361e632b0f30cc686b09eb3e2a3bb70daf66f51b7378fb5a26baa6  /workspace/lab5/v114/living_scs_v114/core.py
+ls: cannot access '/workspace/lab5/core.py': No such file or directory

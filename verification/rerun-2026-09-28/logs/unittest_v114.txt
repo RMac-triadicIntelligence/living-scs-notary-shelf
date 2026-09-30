@@ -1,0 +1,55 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "-m", "unittest", "discover", "-s", "tests", "-v"]
+
+test_backstop_logs_warning_with_exc_info (test_backstop_logging.BackstopLogging.test_backstop_logs_warning_with_exc_info) ... ok
+test_library_is_silent_without_logging_config (test_backstop_logging.BackstopLogging.test_library_is_silent_without_logging_config) ... ok
+test_ordinary_refusals_do_not_log (test_backstop_logging.BackstopLogging.test_ordinary_refusals_do_not_log) ... ok
+test_advancing_clock (test_l5_1_hook_contract.NaiveAppendHookDiverges.test_advancing_clock) ... ok
+test_divergence_persists_into_later_commits (test_l5_1_hook_contract.NaiveAppendHookDiverges.test_divergence_persists_into_later_commits) ... ok
+test_fixed_clock (test_l5_1_hook_contract.NaiveAppendHookDiverges.test_fixed_clock) ... ok
+test_docstrings_document_the_contract (test_l5_1_hook_contract.ReconcilePersistedLog.test_docstrings_document_the_contract) ... ok
+test_json_round_trip_entries (test_l5_1_hook_contract.ReconcilePersistedLog.test_json_round_trip_entries) ... ok
+test_malformed_entries_and_bad_engine_records (test_l5_1_hook_contract.ReconcilePersistedLog.test_malformed_entries_and_bad_engine_records) ... ok
+test_naive_log_reconciles_to_engine_records (test_l5_1_hook_contract.ReconcilePersistedLog.test_naive_log_reconciles_to_engine_records) ... ok
+test_rolled_back_record_never_retried (test_l5_1_hook_contract.ReconcilePersistedLog.test_rolled_back_record_never_retried) ... ok
+test_tamper_gap_and_keys (test_l5_1_hook_contract.ReconcilePersistedLog.test_tamper_gap_and_keys) ... ok
+test_advancing_clock (test_l5_1_hook_contract.UpsertHookStaysConsistent.test_advancing_clock) ... ok
+test_advancing_clock_keyed_and_second_commit (test_l5_1_hook_contract.UpsertHookStaysConsistent.test_advancing_clock_keyed_and_second_commit) ... ok
+test_fixed_clock (test_l5_1_hook_contract.UpsertHookStaysConsistent.test_fixed_clock) ... ok
+test_install_organ_and_restore_paths_still_work (test_v114_hardening.Compatibility.test_install_organ_and_restore_paths_still_work) ... ok
+test_public_api_names_preserved (test_v114_hardening.Compatibility.test_public_api_names_preserved) ... ok
+test_v113_minted_material_commits_on_v114 (test_v114_hardening.Compatibility.test_v113_minted_material_commits_on_v114) ... ok
+test_hook_failure_changes_nothing_and_releases_reservation (test_v114_hardening.Fix1ReentrancyAtomicity.test_hook_failure_changes_nothing_and_releases_reservation) ... ok
+test_hook_sees_precommit_state_with_nonce_reserved_and_copies (test_v114_hardening.Fix1ReentrancyAtomicity.test_hook_sees_precommit_state_with_nonce_reserved_and_copies) ... ok
+test_reentrant_different_valid_auth_and_restore_refused (test_v114_hardening.Fix1ReentrancyAtomicity.test_reentrant_different_valid_auth_and_restore_refused) ... ok
+test_reentrant_same_auth_refused_single_record (test_v114_hardening.Fix1ReentrancyAtomicity.test_reentrant_same_auth_refused_single_record) ... ok
+test_threads_same_auth_exactly_one_commit (test_v114_hardening.Fix1ReentrancyAtomicity.test_threads_same_auth_exactly_one_commit) ... ok
+test_keyed_detects_forged_append_and_tamper (test_v114_hardening.Fix2KeyedHistory.test_keyed_detects_forged_append_and_tamper) ... ok
+test_keyed_hash_differs_and_key_validation (test_v114_hardening.Fix2KeyedHistory.test_keyed_hash_differs_and_key_validation) ... ok
+test_unkeyed_is_byte_compatible_with_v113 (test_v114_hardening.Fix2KeyedHistory.test_unkeyed_is_byte_compatible_with_v113) ... ok
+test_public_records_and_snapshot_are_copies (test_v114_hardening.Fix3RecordCopies.test_public_records_and_snapshot_are_copies) ... ok
+test_strict (test_v114_hardening.Fix4StrictSha256.test_strict) ... ok
+test_artifact_only_with_install_organ (test_v114_hardening.Fix5InputValidation.test_artifact_only_with_install_organ) ... ok
+test_backstop_wraps_unexpected_precommit_exception (test_v114_hardening.Fix5InputValidation.test_backstop_wraps_unexpected_precommit_exception) ... ok
+test_depth_limit_boundary_and_cycles (test_v114_hardening.Fix5InputValidation.test_depth_limit_boundary_and_cycles) ... ok
+test_legit_still_commits_after_refusals (test_v114_hardening.Fix5InputValidation.test_legit_still_commits_after_refusals) ... ok
+test_non_json_values_and_keys (test_v114_hardening.Fix5InputValidation.test_non_json_values_and_keys) ... ok
+test_numeric_bounds (test_v114_hardening.Fix5InputValidation.test_numeric_bounds) ... ok
+test_surrogates_everywhere (test_v114_hardening.Fix5InputValidation.test_surrogates_everywhere) ... ok
+test_wrong_types_refused (test_v114_hardening.Fix5InputValidation.test_wrong_types_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.107s
+
+OK
+
+  logged: WARNING living_scs_v114.core: commit pre-commit backstop: unexpected TypeError converted to Refusal('malformed input: TypeError') | exc_info=TypeError
+  naive append-only hook, advance_clock=True: engine seqs [1] verify_history True | persisted seqs [1, 1] verify_record_chain False | persisted==engine False
+  naive append-only hook, advance_clock=False: engine seqs [1] verify_history True | persisted seqs [1, 1] verify_record_chain False | persisted==engine False
+  reconcile_persisted_log(naive log seqs [1, 1, 2]) -> seqs [1, 2], equals engine.records True, chain True
+  upsert-by-sequence hook, advance_clock=True keyed=False: engine seqs [1] verify_history True | persisted seqs [1] verify_record_chain True | persisted==engine True
+  upsert-by-sequence hook, advance_clock=True keyed=True: engine seqs [1, 2] verify_history True | persisted seqs [1, 2] verify_record_chain True | persisted==engine True
+  upsert-by-sequence hook, advance_clock=False keyed=False: engine seqs [1] verify_history True | persisted seqs [1] verify_record_chain True | persisted==engine True
+  new public names in v1.1.4: ['ED25519_SIGNATURE_HEX_LENGTH', 'MAX_NESTING_DEPTH', 'MAX_SAFE_INTEGER', 'reconcile_persisted_log', 'record_hash_for', 'validate_commit_inputs', 'verify_record_chain']
+
+EXIT_CODE: 0

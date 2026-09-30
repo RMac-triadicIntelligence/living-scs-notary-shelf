@@ -1,0 +1,4 @@
+aa0ac6eb29339dafd980df6c95ff6c008aa78135f32a32b6e7b500cc793c195b  /workspace/lab3/door_challenge/v113/living_scs_v113/core.py
+23299fdc63361e632b0f30cc686b09eb3e2a3bb70daf66f51b7378fb5a26baa6  v114/living_scs_v114/core.py
+a4204474f6f6e49d1666bb52bcb920031a8f886d2cfa6e475e65087b2ce0a455  make_v114_patch.py
+cmp v114/living_scs_v114/core.py (regenerated from v113 by make_v114_patch.py) vs pre-regeneration copy: identical

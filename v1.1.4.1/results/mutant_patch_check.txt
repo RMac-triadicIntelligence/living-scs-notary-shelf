@@ -1,0 +1,3 @@
+v113_ref/living_scs_v113/core.py M1:count=1 M2:count=1 M3:count=1 M4:count=1 M5:count=1 M6:count=1 M7:count=1 M8:count=1 M9:count=1 M10:count=1 M11:count=1 M12:count=1
+v114/living_scs_v114/core.py M1:count=1 M2:count=1 M3:count=1 M4:count=1 M5:count=1 M6:count=1 M7:count=1 M8:count=1 M9:count=1 M10:count=1 M11:count=1 M12:count=1
+all 12 mutant patches apply exactly once to v114 core.py (v1.1.4.1) and compile; no mutant patch needed updating

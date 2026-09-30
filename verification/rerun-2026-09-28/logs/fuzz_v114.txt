@@ -1,0 +1,15 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "tools/fuzz_counts.py", "/workspace/scratch/3a32da67dfe7/verification/work/redteam_v114/fuzz.py"]
+
+target module file: /workspace/scratch/3a32da67dfe7/verification/work/v114/living_scs_v114/core.py
+trials: 20339 counts: {'REFUSE': 17101, 'ACCEPT': 39, 'ADAPTER_REFUSE': 3199}
+FAULT: 0  BUILD_ERROR: 0
+STATE-MUTATED-on-non-accept: 0
+history broken (verify_history False): 0
+accepts total/identical/non-identical: 39 33 6
+anomalous accepts (wrong result / extra record / history): 0
+non-identical accept kinds: ['drop:trace:authorization_ref', 'drop:trace:compensation_ref', 'drop:trace:descendant_impact_ref', 'drop:trace:reversal_ref', 'sig', 'sig']
+post-commit counts: {'REFUSE': 2518, 'ADAPTER_REFUSE': 482}  post-commit anomalies: 0
+exact replay after legit: Refusal: authorization replay
+
+EXIT_CODE: 0

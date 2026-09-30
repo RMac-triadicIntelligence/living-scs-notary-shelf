@@ -1,0 +1,9 @@
+legit issued commit OK, result=9038b97f25a896a6...
+trials: 20339
+outcome transitions v113 -> v114:
+  ACCEPT          -> ACCEPT              39
+  ADAPTER_REFUSE  -> ADAPTER_REFUSE    3199
+  FAULT           -> REFUSE             538
+  REFUSE          -> REFUSE           16563
+per-trial differences other than FAULT->REFUSE: 0
+accepts with different resulting digest between versions: 0

@@ -1,0 +1,11 @@
+test_backstop_logs_warning_with_exc_info (tests.test_backstop_logging.BackstopLogging.test_backstop_logs_warning_with_exc_info) ... ok
+test_library_is_silent_without_logging_config (tests.test_backstop_logging.BackstopLogging.test_library_is_silent_without_logging_config) ... ok
+test_ordinary_refusals_do_not_log (tests.test_backstop_logging.BackstopLogging.test_ordinary_refusals_do_not_log) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+OK
+
+  logged: WARNING living_scs_v114.core: commit pre-commit backstop: unexpected TypeError converted to Refusal('malformed input: TypeError') | exc_info=TypeError
+exit=0

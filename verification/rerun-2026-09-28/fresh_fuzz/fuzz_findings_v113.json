@@ -1,0 +1,4193 @@
+{
+  "accepts_total": 39,
+  "accepts_strict_identical": 33,
+  "accept_kinds": [
+    "authfield:EXP.authority_id",
+    "authfield:EXP.decision",
+    "authfield:EXP.maturity_state",
+    "authfield:EXP.mutation_type",
+    "authfield:EXP.organism_id",
+    "authfield:EXP.policy_version",
+    "authfield:EXP.predecessor_digest",
+    "authfield:EXP.schema",
+    "authfield:EXP.scope",
+    "authfield:REF.authority_id",
+    "authfield:REF.expires_at",
+    "authfield:REF.issued_at",
+    "authfield:REF.maturity_state",
+    "authfield:REF.organism_id",
+    "authfield:REF.policy_version",
+    "authfield:REF.predecessor_digest",
+    "authfield:REF.schema",
+    "authfield:REF.scope",
+    "decision",
+    "drop:trace:authorization_ref",
+    "drop:trace:compensation_ref",
+    "drop:trace:descendant_impact_ref",
+    "drop:trace:reversal_ref",
+    "noncews:determination_id",
+    "noncews:nonce",
+    "numtype:auth.issued_at",
+    "numtype:proposal.created_at",
+    "numtype:trace.created_at",
+    "randmulti",
+    "replace:proposal:mutation.value",
+    "replace:trace:authorization_ref",
+    "replace:trace:compensation_ref",
+    "replace:trace:descendant_impact_ref",
+    "replace:trace:reversal_ref",
+    "sig",
+    "swap:PISS.TISS.AISS"
+  ],
+  "seed": 1337,
+  "total_trials": 20339,
+  "counts": {
+    "REFUSE": 16563,
+    "ACCEPT": 39,
+    "ADAPTER_REFUSE": 3199,
+    "FAULT": 538
+  },
+  "kind_counts": {
+    "replace": {
+      "REFUSE": 3767,
+      "ACCEPT": 5,
+      "ADAPTER_REFUSE": 299,
+      "FAULT": 129
+    },
+    "drop": {
+      "ADAPTER_REFUSE": 55,
+      "REFUSE": 11,
+      "ACCEPT": 4
+    },
+    "extra": {
+      "ADAPTER_REFUSE": 150
+    },
+    "swap": {
+      "ACCEPT": 1,
+      "REFUSE": 26
+    },
+    "authfield": {
+      "ACCEPT": 18,
+      "REFUSE": 16
+    },
+    "sig": {
+      "REFUSE": 6,
+      "ACCEPT": 2
+    },
+    "decision": {
+      "ACCEPT": 1,
+      "ADAPTER_REFUSE": 5,
+      "REFUSE": 2
+    },
+    "noncews": {
+      "ACCEPT": 2,
+      "REFUSE": 8
+    },
+    "numtype": {
+      "REFUSE": 26,
+      "ACCEPT": 3,
+      "FAULT": 3
+    },
+    "randmulti": {
+      "REFUSE": 12701,
+      "ADAPTER_REFUSE": 2690,
+      "FAULT": 406,
+      "ACCEPT": 3
+    }
+  },
+  "num_findings": 544,
+  "findings": [
+    {
+      "n": 732,
+      "kind": "replace:proposal:evidence.0.evidence_id",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 733,
+      "kind": "replace:proposal:evidence.0.evidence_id",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 782,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'bool' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 785,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 786,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 787,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 794,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 795,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 796,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 797,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 798,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 810,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 813,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 815,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 816,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 818,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 820,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 821,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 822,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 823,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 824,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 825,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 826,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 827,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 828,
+      "kind": "replace:proposal:evidence.0.source_uri",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 908,
+      "kind": "replace:proposal:evidence.0.detector",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 909,
+      "kind": "replace:proposal:evidence.0.detector",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 912,
+      "kind": "replace:proposal:evidence.0.detector",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 913,
+      "kind": "replace:proposal:evidence.0.detector",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 1748,
+      "kind": "replace:proposal:maturity_state",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 1749,
+      "kind": "replace:proposal:maturity_state",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 1752,
+      "kind": "replace:proposal:maturity_state",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 1753,
+      "kind": "replace:proposal:maturity_state",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2341,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'NoneType' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2342,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'bool' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2343,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'bool' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2344,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2345,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2346,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2347,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2354,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2355,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2356,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2357,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2358,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2370,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2371,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2372,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2373,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2374,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2375,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2376,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2377,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2378,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2379,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2380,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2381,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2382,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2383,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2384,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2385,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2386,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2387,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2388,
+      "kind": "replace:trace:evidence_ids",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2821,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'NoneType' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2828,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'list' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2829,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2830,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2831,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2832,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'list' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2833,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2839,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2840,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2841,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2842,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2843,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2844,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2845,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2846,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2847,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2848,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2849,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2869,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2870,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2871,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2872,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2873,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2874,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2875,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2876,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2877,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2878,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2879,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 2880,
+      "kind": "replace:trace:created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4141,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not None",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4142,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not bool",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4143,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not bool",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4144,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4145,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4146,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4147,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4148,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not list",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4149,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not dict",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4152,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not list",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4153,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not dict",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4154,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4155,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4156,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4157,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4158,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4170,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4171,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4172,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4173,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4174,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4175,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4176,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4177,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4178,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4179,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4180,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4181,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4182,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4183,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4184,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4185,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4186,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4187,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4188,
+      "kind": "replace:auth:signature",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "authorization_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4250,
+      "kind": "drop:trace:authorization_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "reversal_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4251,
+      "kind": "drop:trace:reversal_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "compensation_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4252,
+      "kind": "drop:trace:compensation_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {
+          "descendant_impact_ref": [
+            null,
+            "<absent>"
+          ]
+        },
+        "auth": {}
+      },
+      "n": 4253,
+      "kind": "drop:trace:descendant_impact_ref",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {},
+        "auth": {
+          "signature": [
+            "f7cbb3a0a01df240cb01ec4978d2459e55828eb0d5381c809ec43d19d990875c4b5c87ed95fbefb800dca2d60a68f299c99d887b9121d66e0d2de4e01dbf760a",
+            "F7CBB3A0A01DF240CB01EC4978D2459E55828EB0D5381C809EC43D19D990875C4B5C87ED95FBEFB800DCA2D60A68F299C99D887B9121D66E0D2DE4E01DBF760A"
+          ]
+        }
+      },
+      "n": 4485,
+      "kind": "sig",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "diff": {
+        "proposal": {},
+        "trace": {},
+        "auth": {
+          "signature": [
+            "f7cbb3a0a01df240cb01ec4978d2459e55828eb0d5381c809ec43d19d990875c4b5c87ed95fbefb800dca2d60a68f299c99d887b9121d66e0d2de4e01dbf760a",
+            "F7CBB3A0A01DF240CB01EC4978D2459E55828EB0D5381C809EC43D19D990875C4B5C87ED95FBEFB800DCA2D60A68F299C99D887B9121D66E0D2DE4E01DBF760A"
+          ]
+        }
+      },
+      "n": 4486,
+      "kind": "sig",
+      "outcome": "ACCEPT",
+      "reason": "",
+      "why": "ACCEPT non-identical submission (same_result=True)",
+      "identical": false
+    },
+    {
+      "n": 4531,
+      "kind": "numtype:proposal.created_at",
+      "outcome": "FAULT",
+      "reason": "ValueError: Out of range float values are not JSON compliant: inf",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4532,
+      "kind": "numtype:trace.created_at",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4539,
+      "kind": "numtype:trace.created_at",
+      "outcome": "FAULT",
+      "reason": "ValueError: Out of range float values are not JSON compliant: inf",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4561,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4584,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4593,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4621,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4631,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4671,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4728,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4788,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4792,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4914,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4958,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4962,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4990,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 4997,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5133,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5141,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5250,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5325,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5330,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5331,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5372,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5440,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5678,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5699,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5789,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5830,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5831,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'bool' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5832,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'bool' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5839,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5862,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5865,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5889,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5911,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 5931,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6009,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6031,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6033,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'bool' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6047,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6049,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6146,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6172,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6215,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6216,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not list",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6342,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6360,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6373,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6390,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6414,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6472,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6564,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6606,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6648,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6679,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6687,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6791,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6796,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6842,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6901,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6944,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 6972,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'bool' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7136,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7179,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7280,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7293,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7339,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7448,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7522,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7528,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7543,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7550,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7601,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7677,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7713,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7720,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7723,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7875,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7885,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7929,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7931,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 7981,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'NoneType' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8008,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8057,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'bool' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8129,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8195,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8206,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8321,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8339,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8378,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8423,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8446,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8479,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8600,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8655,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8663,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8725,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8761,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8807,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 8809,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9039,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9168,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9169,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9206,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9375,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9455,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9496,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9521,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9539,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9550,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9618,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9622,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9704,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9708,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9721,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9727,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9807,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9837,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9930,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9938,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9968,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 9999,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10019,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'NoneType' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10036,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10066,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10076,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10142,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10156,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10159,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10164,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10166,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10169,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10205,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10294,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10309,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10312,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not bool",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10322,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10351,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10406,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10416,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10429,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10437,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10441,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10520,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10571,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10580,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10582,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10595,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10601,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10618,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10631,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10643,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10653,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10657,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10675,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10716,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10727,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10790,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10806,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10826,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10857,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10873,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10930,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10975,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 10985,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11002,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11042,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11052,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11083,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11089,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11145,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11156,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11224,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11312,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11317,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11326,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11329,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11334,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11375,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11436,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11513,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'list' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11562,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11563,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11586,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11594,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'bool' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11633,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11637,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11638,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11671,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11700,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11831,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11870,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11928,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11983,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 11997,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12015,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12098,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12175,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12210,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12265,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12302,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12365,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12374,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12423,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12438,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12466,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12485,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12495,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12503,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12585,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12617,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12657,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12659,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12665,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12676,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'list' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12713,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12719,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12747,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12752,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12753,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12778,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12796,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12804,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12858,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12927,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12966,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 12967,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13091,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13177,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13226,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13358,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13406,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13422,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13490,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13509,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13564,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13607,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13665,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13674,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13706,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13711,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13726,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13734,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13740,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13746,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13747,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13771,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13816,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13856,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13921,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13923,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 13972,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14043,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14090,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14167,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14223,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14232,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14275,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14287,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14354,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14532,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'bool' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14548,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14569,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14593,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14608,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not dict",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14659,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14790,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14814,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14821,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14822,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14823,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14849,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14938,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14950,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not bool",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 14993,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15002,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15032,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15106,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15166,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15175,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15244,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15245,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15288,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15307,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15325,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15343,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15357,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15423,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15430,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15431,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15443,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15452,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15495,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15560,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15577,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not dict",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15580,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15589,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15652,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15662,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15676,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15709,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15829,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15835,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15890,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 15953,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16033,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16138,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16149,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16162,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16172,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16204,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16215,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'int' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16279,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16300,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16307,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16317,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16341,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16405,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16441,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16481,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16529,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16550,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16662,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16682,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16737,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16773,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16843,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16850,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16865,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16882,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16929,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16932,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16939,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 16987,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not float",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17133,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17136,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17222,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17287,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17296,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17348,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17470,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17473,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17516,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17520,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17634,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17700,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17719,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17752,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17769,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'dict'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17773,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17774,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'dict' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17814,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'list' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17877,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17963,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 17988,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18056,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18078,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: fromhex() argument must be str, not int",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18147,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: 'float' object is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18204,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18221,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18234,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'int' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18482,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: '<' not supported between instances of 'str' and 'int'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18554,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: unhashable type: 'list'",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    },
+    {
+      "n": 18583,
+      "kind": "randmulti",
+      "outcome": "FAULT",
+      "reason": "TypeError: argument of type 'float' is not iterable",
+      "why": "non-Refusal exception (crash-not-refuse)",
+      "identical": false
+    }
+  ],
+  "post_commit_counts": {
+    "REFUSE": 2438,
+    "FAULT": 80,
+    "ADAPTER_REFUSE": 482
+  },
+  "post_commit_findings": [],
+  "exact_replay_after_legit": "Refusal: authorization replay",
+  "fault_by_field": {
+    "proposal:evidence.0.evidence_id -> TypeError: unhashable type": 2,
+    "proposal:evidence.0.source_uri -> TypeError: argument of type 'bool' is not iterable": 1,
+    "proposal:evidence.0.source_uri -> TypeError: argument of type 'int' is not iterable": 9,
+    "proposal:evidence.0.source_uri -> TypeError: argument of type 'float' is not iterable": 13,
+    "proposal:evidence.0.detector -> TypeError: unhashable type": 4,
+    "proposal:maturity_state -> TypeError: unhashable type": 4,
+    "trace:evidence_ids -> TypeError: 'NoneType' object is not iterable": 1,
+    "trace:evidence_ids -> TypeError: 'bool' object is not iterable": 2,
+    "trace:evidence_ids -> TypeError: 'int' object is not iterable": 11,
+    "trace:evidence_ids -> TypeError: 'float' object is not iterable": 17,
+    "trace:created_at -> TypeError: '<' not supported between instances of 'NoneType'": 1,
+    "trace:created_at -> TypeError: '<' not supported between instances of 'list' and": 2,
+    "trace:created_at -> TypeError: '<' not supported between instances of 'dict' and": 2,
+    "trace:created_at -> TypeError: '<' not supported between instances of 'str' and ": 25,
+    "auth:signature -> TypeError: fromhex() argument must be str, not None": 1,
+    "auth:signature -> TypeError: fromhex() argument must be str, not bool": 2,
+    "auth:signature -> TypeError: fromhex() argument must be str, not int": 11,
+    "auth:signature -> TypeError: fromhex() argument must be str, not float": 17,
+    "auth:signature -> TypeError: fromhex() argument must be str, not list": 2,
+    "auth:signature -> TypeError: fromhex() argument must be str, not dict": 2,
+    "proposal.created_at -> ValueError: Out of range float values are not JSON compliant": 1,
+    "trace.created_at -> TypeError: '<' not supported between instances of 'str' and ": 1,
+    "trace.created_at -> ValueError: Out of range float values are not JSON compliant": 1
+  }
+}

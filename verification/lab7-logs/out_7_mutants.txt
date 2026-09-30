@@ -1,0 +1,3 @@
+shipped notary: GREEN
+NM1_hidden_admin_op      RED B1_maturity=mature  (caught)
+NM2_frame_force_bypass   RED B1_maturity=mature  (caught)

@@ -1,0 +1,5 @@
+PASS test_reentrant_commit_refused
+PASS test_reentrant_refusal_propagates_atomically
+PASS test_guard_resets_after_reentry
+PASS test_l4_17_still_holds
+exit=0

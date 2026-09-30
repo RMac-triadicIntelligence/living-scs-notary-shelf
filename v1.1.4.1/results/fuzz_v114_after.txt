@@ -1,0 +1,17 @@
+legit issued commit OK, result=9038b97f25a896a6...
+total trials: 20339
+accepts: total=39 strict-identical=33 non-identical=6
+counts: {"REFUSE": 17101, "ACCEPT": 39, "ADAPTER_REFUSE": 3199}
+distinct FAULT reasons:
+ACCEPT findings (non-identical / anomalous): 6
+   drop:trace:authorization_ref ACCEPT non-identical submission (same_result=True)
+   drop:trace:reversal_ref ACCEPT non-identical submission (same_result=True)
+   drop:trace:compensation_ref ACCEPT non-identical submission (same_result=True)
+   drop:trace:descendant_impact_ref ACCEPT non-identical submission (same_result=True)
+   sig ACCEPT non-identical submission (same_result=True)
+   sig ACCEPT non-identical submission (same_result=True)
+saved fuzz_findings.json (findings capped at 500 in file), num_findings= 6
+post-commit sweep (3000 sampled mutations after legit commit): {"REFUSE": 2518, "ADAPTER_REFUSE": 482}
+post-commit anomalies: 0
+exact replay after legit: Refusal: authorization replay
+FAULT by field (single-field replacement):

@@ -1,0 +1,23 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "cryptography": "46.0.0",
+  "source": "/workspace/scratch/3a32da67dfe7/living_scs_v114_1",
+  "work": "/workspace/scratch/3a32da67dfe7/verification/work",
+  "path_adjusted_files": [
+    "make_v114_patch.py",
+    "tools/compare_receipts.py",
+    "tools/backstop_compare.py",
+    "tools/differential.py",
+    "redteam_v114/fuzz_accept_audit.py",
+    "redteam_v114/p2_verify_accepts.py",
+    "redteam_v114/fuzz.py",
+    "redteam_v114/common.py",
+    "redteam_v113/p2_verify_accepts.py",
+    "redteam_v113/fuzz.py",
+    "redteam_v113/common.py",
+    "tests/test_v114_hardening.py",
+    "tests/test_l5_1_hook_contract.py"
+  ],
+  "core_sha256": "23299fdc63361e632b0f30cc686b09eb3e2a3bb70daf66f51b7378fb5a26baa6"
+}

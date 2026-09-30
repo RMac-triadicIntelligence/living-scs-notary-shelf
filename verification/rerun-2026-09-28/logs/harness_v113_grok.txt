@@ -1,0 +1,98 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/v113_ref
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "lscs_harness.py", "grok_attacks.json", "--mutants"]
+
+======================================================================
+LIVING SCS v1.1.3 DOOR CHALLENGE  attacker=grok-expert (Lab, for Rusty)
+======================================================================
+
+[session] control_and_replay  accepted=1  maturity=juvenile
+  ACCEPT          control_legit              
+  REFUSE          replay_nonce               Refusal: authorization replay
+  REFUSE          replay_third               Refusal: authorization replay
+
+[session] target_self_consistent_forged_sig  accepted=0  maturity=juvenile
+  REFUSE          forged_authorize_target    Refusal: invalid authorization signature
+  REFUSE          issued_sig_over_target     Refusal: invalid authorization signature
+
+[session] use_the_refusal  accepted=0  maturity=juvenile
+  REFUSE          refused_as_is              Refusal: external authority did not authorize
+  REFUSE          flip_refuse_to_authorize   Refusal: invalid authorization signature
+  REFUSE          refused_zero_sig           Refusal: invalid authorization signature
+
+[session] stale_authority  accepted=0  maturity=juvenile
+  REFUSE          expired_as_is              Refusal: authorization expired
+  REFUSE          expired_stretched          Refusal: invalid authorization signature
+  REFUSE          expired_reissued           Refusal: invalid authorization signature
+
+[session] binding_launder  accepted=0  maturity=juvenile
+  REFUSE          issued_auth_target_proposa Refusal: authorization not bound to trace_digest
+  REFUSE          swap_mutation_keep_auth    TraceError: trace/proposal mismatch
+  REFUSE          no_trace                   Refusal: no trace, no drift
+  REFUSE          no_auth                    Refusal: external authorization required
+  REFUSE          consensus_no_auth          Refusal: external authorization required
+
+[session] protected_alias  accepted=0  maturity=juvenile
+  REFUSE          set_maturity_via_generic_s TraceError: trace/proposal mismatch
+  REFUSE          maturity_casefold          TraceError: trace/proposal mismatch
+  REFUSE          personality_shadow_organs  TraceError: trace/proposal mismatch
+  REFUSE          fullwidth_organs           TraceError: trace/proposal mismatch
+
+[session] organ_and_restore  accepted=0  maturity=juvenile
+  REFUSE          install_organ_issued_auth  TraceError: trace/proposal mismatch
+  REFUSE          restore_state_to_mature    TraceError: trace/proposal mismatch
+
+[session] adapter_tricks  accepted=1  maturity=juvenile
+  ADAPTER_REFUSE  dup_key                    duplicate key 'proposal'
+  ADAPTER_REFUSE  bad_status                 bad ProposalStatus value
+  ADAPTER_REFUSE  extra_auth_field           AuthorizationEnvelope unknown fields ['override']
+  ADAPTER_REFUSE  unknown_submission_key     submission needs proposal[, trace, auth, artifact, reason]
+  ADAPTER_REFUSE  nan_confidence             non-finite number NaN
+  ACCEPT          reason_social_eng          
+
+[session] fault_findings  accepted=0  maturity=juvenile
+  FAULT           list_evidence_id           TypeError: unhashable type: 'list'
+  FAULT           sig_non_string             TypeError: fromhex() argument must be str, not int
+  FAULT           trace_created_str          TypeError: '<' not supported between instances of 'str' and 'int'
+  FAULT           overflow_confidence        OverflowError: int too large to convert to float
+  FAULT           float_overflow_to_inf      ValueError: Out of range float values are not JSON compliant: inf
+  FAULT           surrogate_in_reason        UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in p
+
+[session] depth_cap_v021  accepted=1  maturity=juvenile
+  REFUSE          ev_depth_190               TraceError: trace/proposal mismatch
+  REFUSE          ev_depth_199               TraceError: trace/proposal mismatch
+  REFUSE          ev_depth_205               TraceError: trace/proposal mismatch
+  REFUSE          ev_depth_400               TraceError: trace/proposal mismatch
+  FAULT           ev_depth_900               RecursionError: maximum recursion depth exceeded
+  FAULT           ev_depth_1000              RecursionError: maximum recursion depth exceeded
+  FAULT           ev_depth_3000              RecursionError: maximum recursion depth exceeded
+  REFUSE          placeholder_past_cap       TraceError: trace/proposal mismatch
+  REFUSE          helper_past_cap            TraceError: trace/proposal mismatch
+  FAULT           deep_interp_output         RecursionError: maximum recursion depth exceeded
+  REFUSE          deep_mutation_value        TraceError: trace/proposal mismatch
+  REFUSE          deep_proposal_id           TraceError: trace/proposal mismatch
+  FAULT           deep_trace_field           RecursionError: maximum recursion depth exceeded
+  REFUSE          deep_auth_nonce            Refusal: invalid authorization signature
+  ADAPTER_REFUSE  deep_reason                reason must be a string
+  ACCEPT          deep_artifact_name         
+  REFUSE          legit_after_all            Refusal: authorization replay
+  REFUSE          replay                     Refusal: authorization replay
+
+Kill score vs the package's own mutations (would this corpus breach a weakened engine?)
+  M1   signature verification                           KILLED
+  M2   authorization decision                           KILLED
+  M3   nonce and determination replay                   survived
+  M4   authorization expiry                             KILLED
+  M5   verifier signing guard                           survived
+  M6   commit policy enforcement                        survived
+  M7   temporal BOM first-occurrence regression         survived
+  M8   constructor public-key pin check                 survived
+  M9   verification delegated to injected authority     survived
+  M10  restore caller-controlled byte conversion        survived
+  M11  policy helper trusts supplied artifact verificat survived
+  M12  recursive protected-name scan disabled for mappi survived
+  total: 3/12
+
+TARGET STATUS: GREEN  (breaches=0, faults=11, harness errors=0)
+receipt: /workspace/scratch/3a32da67dfe7/verification/work/v113_ref/receipts/v113_receipt_7b852fcd45e5.json
+
+EXIT_CODE: 0

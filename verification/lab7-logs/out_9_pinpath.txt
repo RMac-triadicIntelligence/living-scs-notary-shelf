@@ -1,0 +1,7 @@
+notary.py on disk : 997619e89ced   supervisor.PINS   : 6b854cfabcd8   match: False
+
+[1] pins=supervisor.pins_for(ROOT)  (what run_code_attack/selftest/lane_code/run_corpus_oop pass):
+    LAUNCHED tampered notary.py -> pin gate NO-OP (bypassed). notary pid 1029302
+
+[2] pins=None -> supervisor.PINS  (default; only path that enforces):
+    REFUSED at launch: notary.py: 997619e89ced... != pinned 6b854cfabcd8...

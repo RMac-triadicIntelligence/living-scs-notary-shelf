@@ -1,0 +1,12 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_reentrancy.py"]
+
+outer commit result: 9038b97f25a896a6
+hook calls: 1
+reentrant_result: None
+reentrant_exc: Refusal: re-entrant commit refused: a commit is already in progress on this engine
+num records: 1
+record sequences: [1]
+prev hashes distinct: ['00000000']
+verify_history: True
+used_nonces: 1 used_dets: 1

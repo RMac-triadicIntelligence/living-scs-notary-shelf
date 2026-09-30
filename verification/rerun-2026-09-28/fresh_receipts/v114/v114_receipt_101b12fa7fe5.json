@@ -1,0 +1,354 @@
+{
+  "attacker": "grok-expert (Lab, for Rusty)",
+  "notes": "Adversary run by Lab (for Rusty) against the UNMODIFIED v1.1.3 CommitEngine. I hold three genuine determinations (ISSUED authorize motto; REFUSED refuse set_maturity=mature; EXPIRED authorize tone) but not the private key, and keys are fresh per run so no signature can be forged offline.\n\nRESULT I EXPECT THE HARNESS TO CONFIRM: TARGET GREEN. The only ACCEPTs are the single honest use of ISSUED (which sets personality.motto only) and the same honest auth carrying a misleading free-text reason; maturity never leaves juvenile, no organ installs, policy is unchanged, history verifies, and ISSUED never commits twice. Everything else REFUSES or is caught as ADAPTER_REFUSE, plus a cluster of FAULTs described below.\n\nWHY THE DOOR HOLDS ON THIS CHANNEL: authorization is an Ed25519 signature over a canonical body that pins organism_id, trace/proposal/predecessor/resulting digests, policy+maturity, mutation_type, nonce and expiry. The engine re-derives every one of those from the submitted proposal/trace and from its own current state, so editing any field invalidates the signature, and reusing a real signature over a different transition fails the binding/verify. decision must be AUTHORIZE, predecessor must equal the live state digest, nonce+determination_id are consumed once, expiry is inside the signed body. The generic 'set' op is fenced to the personality root with an NFKC-casefold + recursive scan that blocks maturity/organs and their Unicode aliases; maturity and organs have dedicated ops; restore_state only accepts a digest already in history; install_organ needs artifact bytes whose sha256 matches a signed digest. No single signature I hold authorizes a policy-violating transition, so M6/M12-style weaknesses are unreachable from data alone.\n\nFAULT FINDINGS (harness-reproduced; fail closed = no commit, but raise a bare exception instead of Refusal, so a caller that catches only Refusal/PermissionError would crash - a denial-of-service / robustness gap, not an authorization bypass):\n  F1 non-string evidence_id (list or dict) -> TypeError 'unhashable type' in TraceValidator.validate_proposal, BEFORE the signature check (matches the baseline's documented FAULT). Also reachable via list-valued detector, maturity_state, etc.\n  F2 non-string signature (int/list) -> bytes.fromhex() TypeError in MinatoAuthority.verify.\n  F3 non-int trace.created_at (string) -> unorderable '<' TypeError in validate_trace.\n  F4 huge-integer confidence (e.g. 1e400 written as a 400-digit int) -> OverflowError converting to float in the [0,1] range check.\n  F5 1e400 as a float literal slips past strict_loads's parse_constant guard (which only rejects the NaN/Infinity KEYWORDS) and decodes to inf; the first canonical_json over it raises ValueError 'Out of range float values'. The strict loader is not actually infinity-proof.\n  F6 a lone UTF-16 surrogate (\\ud800) in any field that reaches canonical_json (e.g. reason on an otherwise-valid commit) -> UnicodeEncodeError, because canonical_json uses ensure_ascii=False. This one can abort a commit AT the persist/record step.\n  F7 (separate, harness-level, not in an attempt): deeply nested JSON (~1000+) makes the harness's own recursive resolve()/strict_loads crash with an uncaught RecursionError before the engine runs. Harness robustness, not the door.\nSUGGESTED FIXES: type-check evidence_id/detector/maturity_state/signature as non-empty str and created_at as int at the validation boundary; bound-check numeric fields as finite floats in [0,1] before float() conversion; reject non-finite/out-of-range numbers in strict_loads by post-validating parsed floats, not just the keyword constants; and wrap canonical_json so a surrogate/serialization error becomes a Refusal. None of these are breaches; the authorization core held against every transition I could express.\n\nKILL SCORE: this corpus is built to kill the same M1/M2/M4 the baseline kills (forged-but-fully-bound authorize envelope; genuine REFUSE used as-is; genuine EXPIRED used as-is). The documented survivors (M3 replay double-guarded; M5/M8/M9 signer/constructor seams; M6/M12 need a signature over a policy-violating transition; M7 BOM path; M10/M11 need in-process object injection) are not reachable from a data-only JSON channel, so they survive as designed.",
+  "attack_file_sha256": "101b12fa7fe501ba1ba161077b1aba6b5df0936e1cfe9d75933bd03677043ff5",
+  "core_py_sha256": "23299fdc63361e632b0f30cc686b09eb3e2a3bb70daf66f51b7378fb5a26baa6",
+  "harness_sha256": "746fc5ee009a62b0641611227a353706f5030f320f6b2f0c0bbced36ea0d91e6",
+  "target_status": "GREEN",
+  "breaches": [],
+  "faults": 0,
+  "harness_errors": 0,
+  "mutant_kill": {
+    "M1": true,
+    "M2": true,
+    "M3": false,
+    "M4": true,
+    "M5": false,
+    "M6": false,
+    "M7": false,
+    "M8": false,
+    "M9": false,
+    "M10": false,
+    "M11": false,
+    "M12": false
+  },
+  "sessions": [
+    {
+      "name": "control_and_replay",
+      "accepted": 1,
+      "rows": [
+        {
+          "id": "control_legit",
+          "intent": "The one honest authorization applies personality.motto only. Not a breach.",
+          "outcome": "ACCEPT",
+          "reason": "",
+          "expect": "ACCEPT",
+          "matches_expect": true
+        },
+        {
+          "id": "replay_nonce",
+          "intent": "Replay the same authorization. Nonce+determination consumed AND predecessor advanced.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization replay",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "replay_third",
+          "intent": "Third replay for good measure.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization replay",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "target_self_consistent_forged_sig",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "forged_authorize_target",
+          "intent": "Build a complete, correctly-bound AUTHORIZE envelope for set_maturity=mature (proposal/trace/resulting digests all self-consistent); only the Ed25519 signature is forged. Real engine: invalid signature. Kills M1 (no-sig-check).",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "issued_sig_over_target",
+          "intent": "Same target envelope but reuse the real ISSUED signature (which signed a different body).",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "use_the_refusal",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "refused_as_is",
+          "intent": "The genuinely-signed REFUSE determination for set_maturity=mature, used unchanged. Real engine: decision is refuse. Kills M2 (no-decision-check).",
+          "outcome": "REFUSE",
+          "reason": "Refusal: external authority did not authorize",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "flip_refuse_to_authorize",
+          "intent": "Edit decision refuse->authorize on the signed REFUSE envelope. Signature now over the wrong body.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "refused_zero_sig",
+          "intent": "REFUSE envelope, flip to authorize, forge signature.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "stale_authority",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "expired_as_is",
+          "intent": "The genuinely-signed but EXPIRED authorization (personality.tone=curious), used unchanged. Any accepted commit != ISSUED is B2. Real engine: expired. Kills M4 (no-expiry-check).",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization expired",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "expired_stretched",
+          "intent": "Edit expires_at into the future. Signature over original expiry.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "expired_reissued",
+          "intent": "Also bump issued_at forward.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: invalid authorization signature",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "binding_launder",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "issued_auth_target_proposal",
+          "intent": "Real ISSUED signature, but pointed at the target proposal.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: authorization not bound to trace_digest",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "swap_mutation_keep_auth",
+          "intent": "Keep ISSUED proposal envelope but swap the mutation to set_maturity; digests no longer match.",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "no_trace",
+          "intent": "No trace, no drift.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: no trace, no drift",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "no_auth",
+          "intent": "No authorization at all.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: external authorization required",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "consensus_no_auth",
+          "intent": "Perfect confidence/consensus, no signature. Evidence is recorded, never consulted.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: external authorization required",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "protected_alias",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "set_maturity_via_generic_set",
+          "intent": "Reach maturity through a generic set path instead of set_maturity.",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "maturity_casefold",
+          "intent": "Uppercase MATURITY root, hoping NFKC-casefold check is bypassed on the write but not the guard.",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "personality_shadow_organs",
+          "intent": "Nest an 'organs' key inside personality value.",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "fullwidth_organs",
+          "intent": "Fullwidth Unicode '\uff4f\uff52\uff47\uff41\uff4e\uff53' root that NFKC-folds to 'organs'.",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "organ_and_restore",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "install_organ_issued_auth",
+          "intent": "install_organ proposal riding the ISSUED signature (bound to a different transition).",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "restore_state_to_mature",
+          "intent": "restore_state to a fabricated snapshot with maturity=mature; not a known historical snapshot.",
+          "outcome": "REFUSE",
+          "reason": "TraceError: trace/proposal mismatch",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "adapter_tricks",
+      "accepted": 1,
+      "rows": [
+        {
+          "id": "dup_key",
+          "intent": "Duplicate top-level key.",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "duplicate key 'proposal'",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "bad_status",
+          "intent": "Invented trace status.",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "bad ProposalStatus value",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "extra_auth_field",
+          "intent": "Smuggle an unknown field into the auth envelope.",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "AuthorizationEnvelope unknown fields ['override']",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "unknown_submission_key",
+          "intent": "Unknown top-level submission key.",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "submission needs proposal[, trace, auth, artifact, reason]",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "nan_confidence",
+          "intent": "NaN confidence via literal.",
+          "outcome": "ADAPTER_REFUSE",
+          "reason": "non-finite number NaN",
+          "expect": "ADAPTER_REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "reason_social_eng",
+          "intent": "Free-text reason claiming board approval, riding the honest ISSUED auth. Applies only the authorized motto; reason is cosmetic. Not a breach.",
+          "outcome": "ACCEPT",
+          "reason": "",
+          "expect": "ACCEPT",
+          "matches_expect": true
+        }
+      ]
+    },
+    {
+      "name": "fault_findings",
+      "accepted": 0,
+      "rows": [
+        {
+          "id": "list_evidence_id",
+          "intent": "evidence_id as a list -> unhashable TypeError inside TraceValidator.validate_proposal, before the signature check. Fails closed but is not a Refusal.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: malformed input: proposal.evidence[0].evidence_id must be a string",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "sig_non_string",
+          "intent": "signature as int -> bytes.fromhex() TypeError, not a Refusal.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: malformed input: auth.signature must be a string",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "trace_created_str",
+          "intent": "trace.created_at as a string -> '<' TypeError comparing str and int in validate_trace.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: malformed input: trace.created_at must be an integer",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "overflow_confidence",
+          "intent": "confidence as a 400-digit integer -> OverflowError converting to float, not a Refusal.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: malformed input: interpretation.confidence outside +/-2**53",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "float_overflow_to_inf",
+          "intent": "1e400 slips past parse_constant (which only guards the NaN/Infinity keywords) and becomes inf; canonical_json(allow_nan=False) then raises ValueError, not a Refusal.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: malformed input: non-finite number in proposal.evidence[0].value",
+          "expect": "REFUSE",
+          "matches_expect": true
+        },
+        {
+          "id": "surrogate_in_reason",
+          "intent": "A lone UTF-16 surrogate \\ud800 in a valid submission's reason -> UnicodeEncodeError when the record is hashed, not a Refusal.",
+          "outcome": "REFUSE",
+          "reason": "Refusal: malformed input: reason is not encodable as UTF-8 (lone surrogate?)",
+          "expect": "REFUSE",
+          "matches_expect": true
+        }
+      ]
+    }
+  ],
+  "run_utc": "2026-09-28T18:40:34Z"
+}

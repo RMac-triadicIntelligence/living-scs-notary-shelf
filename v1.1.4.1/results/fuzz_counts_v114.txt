@@ -1,0 +1,14 @@
+target module file: /workspace/lab5/v114/living_scs_v114/core.py
+trials: 20339 counts: {'REFUSE': 17101, 'ACCEPT': 39, 'ADAPTER_REFUSE': 3199}
+FAULT: 0  BUILD_ERROR: 0
+STATE-MUTATED-on-non-accept: 0
+history broken (verify_history False): 0
+accepts total/identical/non-identical: 39 33 6
+anomalous accepts (wrong result / extra record / history): 0
+non-identical accept kinds: ['drop:trace:authorization_ref', 'drop:trace:compensation_ref', 'drop:trace:descendant_impact_ref', 'drop:trace:reversal_ref', 'sig', 'sig']
+post-commit counts: {'REFUSE': 2518, 'ADAPTER_REFUSE': 482}  post-commit anomalies: 0
+exact replay after legit: Refusal: authorization replay
+
+real	0m6.681s
+user	0m6.625s
+sys	0m0.056s

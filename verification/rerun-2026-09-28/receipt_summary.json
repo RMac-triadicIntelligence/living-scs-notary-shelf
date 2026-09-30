@@ -1,0 +1,117 @@
+[
+  {
+    "version": "v113_ref",
+    "receipt": "v113_receipt_70827b33354e.json",
+    "sessions": 9,
+    "attempts": 34,
+    "accepts": 2,
+    "status": "GREEN",
+    "breaches": 0,
+    "faults": 6,
+    "harness_errors": 0,
+    "expectation_mismatches": 0,
+    "killed": [
+      "M1",
+      "M2",
+      "M4"
+    ],
+    "changes_from_shipped_receipt": []
+  },
+  {
+    "version": "v113_ref",
+    "receipt": "v113_receipt_7b852fcd45e5.json",
+    "sessions": 10,
+    "attempts": 52,
+    "accepts": 3,
+    "status": "GREEN",
+    "breaches": 0,
+    "faults": 11,
+    "harness_errors": 0,
+    "expectation_mismatches": 0,
+    "killed": [
+      "M1",
+      "M2",
+      "M4"
+    ],
+    "changes_from_shipped_receipt": [
+      {
+        "id": "ev_depth_900",
+        "stored": "REFUSE",
+        "rerun": "FAULT",
+        "reason": "RecursionError: maximum recursion depth exceeded"
+      }
+    ]
+  },
+  {
+    "version": "v113_ref",
+    "receipt": "v113_receipt_999f85f75b1d.json",
+    "sessions": 6,
+    "attempts": 17,
+    "accepts": 2,
+    "status": "GREEN",
+    "breaches": 0,
+    "faults": 2,
+    "harness_errors": 0,
+    "expectation_mismatches": 0,
+    "killed": [
+      "M1",
+      "M2",
+      "M4"
+    ],
+    "changes_from_shipped_receipt": []
+  },
+  {
+    "version": "v114",
+    "receipt": "v114_receipt_101b12fa7fe5.json",
+    "sessions": 9,
+    "attempts": 34,
+    "accepts": 2,
+    "status": "GREEN",
+    "breaches": 0,
+    "faults": 0,
+    "harness_errors": 0,
+    "expectation_mismatches": 0,
+    "killed": [
+      "M1",
+      "M2",
+      "M4"
+    ],
+    "changes_from_shipped_receipt": []
+  },
+  {
+    "version": "v114",
+    "receipt": "v114_receipt_993d42fa47ab.json",
+    "sessions": 10,
+    "attempts": 52,
+    "accepts": 3,
+    "status": "GREEN",
+    "breaches": 0,
+    "faults": 0,
+    "harness_errors": 0,
+    "expectation_mismatches": 0,
+    "killed": [
+      "M1",
+      "M2",
+      "M4"
+    ],
+    "changes_from_shipped_receipt": []
+  },
+  {
+    "version": "v114",
+    "receipt": "v114_receipt_999f85f75b1d.json",
+    "sessions": 6,
+    "attempts": 17,
+    "accepts": 2,
+    "status": "GREEN",
+    "breaches": 0,
+    "faults": 0,
+    "harness_errors": 0,
+    "expectation_mismatches": 0,
+    "killed": [
+      "M1",
+      "M2",
+      "M4"
+    ],
+    "changes_from_shipped_receipt": []
+  }
+]

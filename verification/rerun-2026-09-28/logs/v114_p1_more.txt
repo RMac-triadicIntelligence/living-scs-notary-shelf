@@ -1,0 +1,18 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v114
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_more.py"]
+
+=== confirm raw-str-decision fault leaves nothing committed ===
+raised: Refusal malformed input: auth.decision must be a Decision
+state changed: False
+
+=== injected authority with overridden verify (M9 territory) ===
+engine._authority is injected object: False
+engine._authority type: MinatoAuthority
+
+=== second engine with attacker's own key: can attacker sign anything? ===
+-> forged-key commit: Refusal invalid authorization signature
+
+=== remove_organ on protected/nonexistent: reachable? ===
+ACCEPT remove_organ 47638fff12b739ab state: {'maturity': 'juvenile', 'personality': {'tone': 'humble'}, 'organs': {}, 'policy': {'egress': 'deny'}}
+
+EXIT_CODE: 0

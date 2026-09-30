@@ -1,0 +1,12 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work/redteam_v113
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "p1_hook_record_alias.py"]
+
+hook record is stored record: True
+verify_history before: True
+stored reason now: TAMPERED
+verify_history after: False
+public records[0] is internal: True
+verify_history after tampering via public .records: False
+history_snapshot -> Refusal history integrity failure
+
+EXIT_CODE: 0

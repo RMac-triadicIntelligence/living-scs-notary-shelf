@@ -1,0 +1,115 @@
+ROW control_legit                ACCEPT          [notary] 
+ROW replay_nonce                 REFUSE          [notary] Refusal: authorization replay
+ROW replay_third                 REFUSE          [notary] Refusal: authorization replay
+ROW forged_authorize_target      REFUSE          [notary] Refusal: invalid authorization signature
+ROW issued_sig_over_target       REFUSE          [notary] Refusal: invalid authorization signature
+ROW refused_as_is                REFUSE          [notary] Refusal: external authority did not authorize
+ROW flip_refuse_to_authorize     REFUSE          [notary] Refusal: invalid authorization signature
+ROW refused_zero_sig             REFUSE          [notary] Refusal: invalid authorization signature
+ROW expired_as_is                REFUSE          [notary] Refusal: authorization expired
+ROW expired_stretched            REFUSE          [notary] Refusal: invalid authorization signature
+ROW expired_reissued             REFUSE          [notary] Refusal: invalid authorization signature
+ROW issued_auth_target_proposal  REFUSE          [notary] Refusal: authorization not bound to trace_digest
+ROW swap_mutation_keep_auth      REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW no_trace                     REFUSE          [notary] Refusal: no trace, no drift
+ROW no_auth                      REFUSE          [notary] Refusal: external authorization required
+ROW consensus_no_auth            REFUSE          [notary] Refusal: external authorization required
+ROW set_maturity_via_generic_set REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW maturity_casefold            REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW personality_shadow_organs    REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW fullwidth_organs             REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW install_organ_issued_auth    REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW restore_state_to_mature      REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW dup_key                      ADAPTER_REFUSE  [client-resolve] duplicate key 'proposal'
+ROW bad_status                   ADAPTER_REFUSE  [notary] bad ProposalStatus value
+ROW extra_auth_field             ADAPTER_REFUSE  [notary] AuthorizationEnvelope unknown fields ['override']
+ROW unknown_submission_key       ADAPTER_REFUSE  [notary] submission needs proposal[, trace, auth, artifact, 
+ROW nan_confidence               ADAPTER_REFUSE  [client-resolve] non-finite number NaN
+ROW reason_social_eng            REFUSE          [notary] Refusal: authorization replay
+ROW list_evidence_id             REFUSE          [notary] Refusal: malformed input: proposal.evidence[0].evid
+ROW sig_non_string               REFUSE          [notary] Refusal: malformed input: auth.signature must be a 
+ROW trace_created_str            REFUSE          [notary] Refusal: malformed input: trace.created_at must be 
+ROW overflow_confidence          REFUSE          [notary] Refusal: malformed input: interpretation.confidence
+ROW float_overflow_to_inf        WIRE_REFUSE     [client-encode] non-finite number is not encodable on the wi
+ROW surrogate_in_reason          REFUSE          [notary] Refusal: malformed input: reason is not encodable a
+ROW ev_depth_190                 WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW ev_depth_199                 WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW ev_depth_205                 WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW ev_depth_400                 WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW ev_depth_900                 WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW ev_depth_1000                WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW ev_depth_3000                WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW placeholder_past_cap         WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW helper_past_cap              WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_interp_output           WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_mutation_value          WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_proposal_id             WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_trace_field             WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_auth_nonce              WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_reason                  WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW deep_artifact_name           WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW legit_after_all              REFUSE          [notary] Refusal: authorization replay
+ROW replay                       REFUSE          [notary] Refusal: authorization replay
+corpus: grok_attacks.json
+counts: {"ACCEPT": 1, "ADAPTER_REFUSE": 5, "REFUSE": 29, "WIRE_REFUSE": 17}
+faults: 0  wire_refuse: 17  final records: 1
+TARGET STATUS: GREEN (breaches=0)
+ROW control_legit                ACCEPT          [notary] 
+ROW replay_nonce                 REFUSE          [notary] Refusal: authorization replay
+ROW replay_third                 REFUSE          [notary] Refusal: authorization replay
+ROW forged_authorize_target      REFUSE          [notary] Refusal: invalid authorization signature
+ROW issued_sig_over_target       REFUSE          [notary] Refusal: invalid authorization signature
+ROW refused_as_is                REFUSE          [notary] Refusal: external authority did not authorize
+ROW flip_refuse_to_authorize     REFUSE          [notary] Refusal: invalid authorization signature
+ROW refused_zero_sig             REFUSE          [notary] Refusal: invalid authorization signature
+ROW expired_as_is                REFUSE          [notary] Refusal: authorization expired
+ROW expired_stretched            REFUSE          [notary] Refusal: invalid authorization signature
+ROW expired_reissued             REFUSE          [notary] Refusal: invalid authorization signature
+ROW issued_auth_target_proposal  REFUSE          [notary] Refusal: authorization not bound to trace_digest
+ROW swap_mutation_keep_auth      REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW no_trace                     REFUSE          [notary] Refusal: no trace, no drift
+ROW no_auth                      REFUSE          [notary] Refusal: external authorization required
+ROW consensus_no_auth            REFUSE          [notary] Refusal: external authorization required
+ROW set_maturity_via_generic_set REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW maturity_casefold            REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW personality_shadow_organs    REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW fullwidth_organs             REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW install_organ_issued_auth    REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW restore_state_to_mature      REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW dup_key                      ADAPTER_REFUSE  [client-resolve] duplicate key 'proposal'
+ROW bad_status                   ADAPTER_REFUSE  [notary] bad ProposalStatus value
+ROW extra_auth_field             ADAPTER_REFUSE  [notary] AuthorizationEnvelope unknown fields ['override']
+ROW unknown_submission_key       ADAPTER_REFUSE  [notary] submission needs proposal[, trace, auth, artifact, 
+ROW nan_confidence               ADAPTER_REFUSE  [client-resolve] non-finite number NaN
+ROW reason_social_eng            REFUSE          [notary] Refusal: authorization replay
+ROW list_evidence_id             REFUSE          [notary] Refusal: malformed input: proposal.evidence[0].evid
+ROW sig_non_string               REFUSE          [notary] Refusal: malformed input: auth.signature must be a 
+ROW trace_created_str            REFUSE          [notary] Refusal: malformed input: trace.created_at must be 
+ROW overflow_confidence          REFUSE          [notary] Refusal: malformed input: interpretation.confidence
+ROW float_overflow_to_inf        WIRE_REFUSE     [client-encode] non-finite number is not encodable on the wi
+ROW surrogate_in_reason          REFUSE          [notary] Refusal: malformed input: reason is not encodable a
+corpus: round2_attacks.json
+counts: {"ACCEPT": 1, "ADAPTER_REFUSE": 5, "REFUSE": 27, "WIRE_REFUSE": 1}
+faults: 0  wire_refuse: 1  final records: 1
+TARGET STATUS: GREEN (breaches=0)
+ROW control_legit                ACCEPT          [notary] 
+ROW replay_same                  REFUSE          [notary] Refusal: authorization replay
+ROW refused_as_is                REFUSE          [notary] Refusal: external authority did not authorize
+ROW flip_decision                REFUSE          [notary] Refusal: invalid authorization signature
+ROW zero_signature               REFUSE          [notary] Refusal: invalid authorization signature
+ROW expired_as_is                REFUSE          [notary] Refusal: authorization expired
+ROW expired_stretched            REFUSE          [notary] Refusal: invalid authorization signature
+ROW issued_auth_target_proposal  REFUSE          [notary] Refusal: authorization not bound to trace_digest
+ROW issued_auth_target_mutation  REFUSE          [notary] TraceError: trace/proposal mismatch
+ROW consensus_no_auth            REFUSE          [notary] Refusal: external authorization required
+ROW no_trace                     REFUSE          [notary] Refusal: no trace, no drift
+ROW dup_key                      ADAPTER_REFUSE  [client-resolve] duplicate key 'proposal'
+ROW bad_status                   ADAPTER_REFUSE  [notary] bad ProposalStatus value
+ROW extra_auth_field             ADAPTER_REFUSE  [notary] AuthorizationEnvelope unknown fields ['override']
+ROW unhashable_evidence_id       REFUSE          [notary] Refusal: malformed input: proposal.evidence[0].evid
+ROW deep_evidence_value          WIRE_REFUSE     [notary] nesting deeper than 96 on the wire
+ROW still_honest                 REFUSE          [notary] Refusal: authorization replay
+corpus: lscs_baseline.json
+counts: {"ACCEPT": 1, "ADAPTER_REFUSE": 3, "REFUSE": 12, "WIRE_REFUSE": 1}
+faults: 0  wire_refuse: 1  final records: 1
+TARGET STATUS: GREEN (breaches=0)

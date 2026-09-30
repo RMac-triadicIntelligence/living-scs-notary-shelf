@@ -1,0 +1,7 @@
+CWD: /workspace/scratch/3a32da67dfe7/verification/work
+COMMAND: ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python", "tools/backstop_compare.py"]
+
+v113 RAW TypeError 'int' object is not iterable | records: 0
+v114 Refusal: malformed input: TypeError | cause: TypeError | records: 0
+
+EXIT_CODE: 0

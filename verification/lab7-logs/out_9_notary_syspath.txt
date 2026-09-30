@@ -1,0 +1,3 @@
+ENABLE_USER_SITE= True usersite= /home/box/.local/lib/python3.13/site-packages exists= False
+sys.flags.isolated= 0 no_site= 0
+['', '/usr/lib/python313.zip', '/usr/lib/python3.13', '/usr/lib/python3.13/lib-dynload', '/usr/local/lib/python3.13/dist-packages', '/usr/lib/python3/dist-packages']
